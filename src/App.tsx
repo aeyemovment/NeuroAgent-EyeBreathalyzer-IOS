@@ -363,7 +363,7 @@ function App() {
   }
 
   const handleStartBaseline = () => {
-    // Sober confirmation only required for first calibration (baselineStatus='none')
+    // Baseline readiness confirmation only required for first calibration (baselineStatus='none')
     // For second calibration (needs_second), user already confirmed
     if (baselineStatus === 'none' && !soberConfirmed) return
     setSessionType('baseline')
