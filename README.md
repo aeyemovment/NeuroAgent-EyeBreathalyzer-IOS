@@ -2,7 +2,7 @@
 
 **NeuroAgent open research app** for **dementia research** organizations.
 
-Built on the HazyEyesIOS MediaPipe OKN / camera pipeline. Research only — not for diagnosis or clinical screening.
+Built on the HazyEyesIOS MediaPipe OKN / camera pipeline. In research use, may surface **OKN / eye-movement impairment-pattern signals associated with some dementia subtypes** and help **prioritize referral for targeted genetic testing** (e.g. C9ORF72). Research only — not a clinical diagnosis or genetic test.
 
 | | |
 |---|---|

@@ -13,9 +13,9 @@ export const RESEARCH_LANES: Record<ResearchLaneId, ResearchLane> = {
     id: 'dementia',
     label: 'Dementia research',
     tagline:
-      'Open research OKN for dementia · help prioritize referral for targeted genetic testing (e.g. C9ORF72)',
+      'Open research OKN for dementia · may surface impairment-pattern signals in some dementia subtypes · help prioritize referral for targeted genetic testing (e.g. C9ORF72)',
     nonClaim:
-      'Research decision-support only. Not a dementia diagnosis and not a genetic test — lab confirmation required for genotype and trial eligibility.',
+      'Research decision-support only. Impairment-pattern signals are research OKN / eye-movement markers — not a clinical diagnosis of any dementia subtype. Not a genetic test; lab confirmation required for genotype and trial eligibility.',
   },
 }
 

@@ -104,11 +104,14 @@ export function C9ProtocolPanel() {
       </p>
 
       <div style={styles.warn}>
-        <strong>Research decision-support only.</strong> OpenDementia can help{' '}
+        <strong>Research decision-support only.</strong> OpenDementia may surface{' '}
+        <em>OKN / eye-movement impairment-pattern signals associated with some dementia subtypes</em>{' '}
+        (research framing) and help{' '}
         <em>prioritize who may benefit from referral for targeted genetic testing</em> (e.g.
         C9ORF72) for gene-specific trial pathways. It does <strong>not</strong> diagnose ALS-FTD
-        and does <strong>not</strong> replace lab genetic testing. Trial eligibility requires
-        genetic confirmation + the trial’s criteria. Demo metrics are synthetic / illustrative.
+        or any dementia subtype and does <strong>not</strong> replace lab genetic testing. Trial
+        eligibility requires genetic confirmation + the trial’s criteria. Demo metrics are
+        synthetic / illustrative.
       </div>
 
       <video

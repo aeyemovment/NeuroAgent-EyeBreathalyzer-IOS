@@ -859,9 +859,11 @@ function App() {
               <h3>Purpose</h3>
               <p>
                 <strong>OpenDementia</strong> is a NeuroAgent open research app (OKN / MediaPipe
-                pipeline) for non-commercial <strong>dementia research</strong> and education. With
-                your permission, anonymized eye-movement recordings and related signals may be stored
-                to improve research algorithms.
+                pipeline) for non-commercial <strong>dementia research</strong> and education. In
+                research use, it may surface OKN / eye-movement impairment-pattern signals associated
+                with some dementia subtypes and help prioritize referral for targeted genetic testing
+                (e.g. C9ORF72). With your permission, anonymized eye-movement recordings and related
+                signals may be stored to improve research algorithms.
               </p>
               <p>
                 <strong>Not a medical device.</strong> Not for diagnosis, treatment, or clinical

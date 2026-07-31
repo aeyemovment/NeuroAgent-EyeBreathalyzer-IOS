@@ -17,18 +17,21 @@ export const C9_PROTOCOL = {
   mutation: 'C9ORF72 (hexanucleotide repeat expansion) — gene-specific trials',
   phenotype: 'ALS-FTD spectrum (research framing)',
   purpose:
-    'Help dementia / ALS research teams screen patients who may warrant referral for ' +
-    'targeted genetic counseling and C9ORF72 testing, so investigators can identify ' +
-    'candidates for gene-specific clinical trials. Research decision-support only — not a genetic test.',
+    'In research use, surface OKN / eye-movement impairment-pattern signals that may associate with ' +
+    'some dementia subtypes (e.g. ALS-FTD spectrum), and help teams prioritize who may warrant referral ' +
+    'for targeted genetic counseling and C9ORF72 testing for gene-specific trials. ' +
+    'Research decision-support only — not a clinical diagnosis or genetic test.',
   intendedUse:
-    'Research decision-support to prioritize referral for targeted genetic testing (e.g. C9ORF72) ' +
-    'and subsequent gene-specific trial screening pathways.',
+    'Research decision-support: (1) explore impairment-pattern OKN signals in some dementia subtypes; ' +
+    '(2) prioritize referral for targeted genetic testing (e.g. C9ORF72) and subsequent gene-specific ' +
+    'trial screening pathways.',
   demoVideo: '/demo/okn_demo_c9orf72.mp4',
   demoPoster: '/demo/frames/frame_01.jpg',
   collaborateUrl:
     'https://www.theneuroagentai.com/collaborate?source=OpenDementia&protocol=C9ORF72-ALS-FTD&app=https%3A%2F%2Fopendementia.vercel.app',
   nonClaims: [
-    'Does not diagnose ALS, FTD, or ALS-FTD.',
+    'Does not diagnose ALS, FTD, ALS-FTD, or any dementia subtype.',
+    '“Impairment” / impairment-pattern signals mean research OKN / eye-movement markers only — not clinical cognitive impairment diagnosis.',
     'Does not detect or confirm C9ORF72 genotype — laboratory genetic testing is required.',
     'Does not replace clinical evaluation, EMG, imaging, or genetic counseling.',
     '“Screen for genetic testing” means research prioritization for referral, not a stand-alone diagnosis.',
