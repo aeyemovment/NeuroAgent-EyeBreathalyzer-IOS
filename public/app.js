@@ -124,7 +124,7 @@ const SAFE_ZONE_X_MIN = 0.15;
 const SAFE_ZONE_X_MAX = 0.85;
 const SAFE_ZONE_Y_MIN = 0.10;
 const SAFE_ZONE_Y_MAX = 0.90;
-const YAW_LIMIT_NORM = 0.12;              // Head turn tolerance (was 0.08 — too strict for impaired users)
+const YAW_LIMIT_NORM = 0.12;              // Head turn tolerance (was 0.08 — relaxed for research participants)
 const PITCH_LIMIT_NORM = 0.15;             // Head tilt tolerance (was 0.10)
 const MIN_EYE_SPAN_NORM = 0.035;
 const NOSE_MOTION_SIGMA_MAX = 0.020;       // Phone stability tolerance (was 0.012 — too strict for handheld)
@@ -2218,7 +2218,7 @@ async function stopTest(){
     // Dispatch test-complete immediately (non-blocking — don't delay results display)
     window.dispatchEvent(new CustomEvent('test-complete', { detail }));
 
-    // Stash upload data — upload is deferred until user submits BAC
+    // Stash upload data — upload deferred until research metadata submit
     window.__pendingUpload = { csv, result, videoBlob, sidecarJson, detail };
     window.dispatchEvent(new CustomEvent('upload-state-change', {
       detail: { phase: 'awaiting_bac' }
@@ -3275,14 +3275,14 @@ function analyzeOKN(samples) {
     const featureData = computeClassifierFeatures(samples, NaN); // Pass NaN when gain not available yet
     let classifierProbability = 1;
     let decision = 'likely';
-    let label = 'Impaired';
+    let label = 'Elevated research pattern';
     let color = 'bad';
     let detail = 'Eye movement was minimal, so the system could not run a full OKN analysis. Result defaults to Impaired for safety.';
 
     if (classifierArtifact && featureData) {
       const prediction = predictClassifier(featureData);
       if (prediction) {
-        console.log(`🤖 Classifier drunk probability (ignored due to minimal movement): ${(prediction.probability * 100).toFixed(2)}%`);
+        console.log(`Classifier research probability (ignored due to minimal movement): ${(prediction.probability * 100).toFixed(2)}%`);
         console.table(prediction.featureMap);
       }
     }
@@ -3410,7 +3410,7 @@ function analyzeOKN(samples) {
     let prediction = null;
 
     if (isCatBoostBaseline) {
-      // C2-alt CatBoost: requires sober baseline for z-scoring
+      // C2-alt CatBoost: requires research baseline for z-scoring
       const hasBaseline = typeof window !== 'undefined' && window.__BASELINE_FEATURES__;
       if (hasBaseline) {
         prediction = predictCatBoostBaseline(samples);
@@ -3428,19 +3428,19 @@ function analyzeOKN(samples) {
 
     if (prediction) {
       classifierProbability = prediction.probability;
-      console.log(`🤖 Classifier drunk probability: ${(classifierProbability * 100).toFixed(2)}%`);
+      console.log(`Classifier research probability: ${(classifierProbability * 100).toFixed(2)}%`);
       if (prediction.featureMap) console.table(prediction.featureMap);
-      // Binary classification: impaired or not impaired
+      // Binary classification: elevated vs baseline-range research pattern
       if (prediction.impaired) {
         decision = 'likely';
-        label = 'Impaired';
+        label = 'Elevated research pattern';
         color = 'bad';
-        detail = 'Eye tracking indicates impairment. Do not drive.';
+        detail = 'Research signal: elevated eye-movement pattern. Not a diagnosis. Not alcohol-related.';
       } else {
         decision = 'unlikely';
-        label = 'Not impaired';
+        label = 'Baseline-range research pattern';
         color = 'ok';
-        detail = 'Eye tracking is consistent with your sober baseline.';
+        detail = 'Eye tracking is consistent with your research baseline.';
       }
     } else {
       // No fallback — log structured error for debugging
@@ -3476,7 +3476,7 @@ function analyzeOKN(samples) {
     console.log('ℹ️ Detected minimal eye movement; defaulting to Impaired result as a safety precaution.');
     classifierProbability = 1;
     decision = 'likely';
-    label = 'Impaired';
+    label = 'Elevated research pattern';
     color = 'bad';
     detail = 'Eye movement stayed steady throughout the assessment. Result defaults to Impaired for safety review.';
   }
@@ -3723,7 +3723,7 @@ function showDecision(res){
       // add disclaimer & same options if user still feels impaired
       const disclaimer = document.createElement('div');
       disclaimer.className = 'hint';
-      disclaimer.textContent = "If you feel too impaired to drive despite this result, use the same safe‑ride options below.";
+      disclaimer.textContent = "Research prototype only — not a medical diagnosis. Not for alcohol or impairment decisions.";
       decisionActions.appendChild(disclaimer);
       actions.push(goSafe, retry);
     }else{
@@ -3855,7 +3855,7 @@ if(mirrorToggle) {
 window.startTest = startTest;
 window.resetTest = resetTest;
 
-// Listen for deferred upload trigger (user submitted BAC on results screen)
+// Listen for deferred upload trigger (research metadata submit)
 window.addEventListener('upload-with-bac', function(e) {
   const pending = window.__pendingUpload;
   if (!pending) {
@@ -3866,7 +3866,7 @@ window.addEventListener('upload-with-bac', function(e) {
   const selfReportLabel = e.detail && e.detail.selfReportLabel ? e.detail.selfReportLabel : null;
   const targetTable = e.detail && e.detail.targetTable ? e.detail.targetTable : null;
 
-  // Inject BAC into the result object so uploadResultsToSupabase includes it in the row
+  // Inject optional schema field into the result object for upload
   if (bac !== null && pending.result) {
     pending.result.bac = bac;
   }
@@ -3909,7 +3909,7 @@ window.addEventListener('upload-with-bac', function(e) {
 // BASELINE CLASSIFIER — C2-alt CatBoost (3 z-scored features)
 // Threshold 0.7406 needs recalibration at N>=30 (CI wide at N=8).
 // Single-session baseline uses unscaled deviation; >=3 sessions recommended.
-// accel_kurtosis: alcohol disrupts cerebellar smooth pursuit,
+// accel_kurtosis: pursuit dynamics feature (research pipeline),
 // producing jerky acceleration with heavy tails (high kurtosis).
 // =====================================================================
 
@@ -4332,7 +4332,7 @@ function checkBaselineStdQuality(baselineSessions, artifact) {
 }
 
 // --- Baseline Quality Gate ---
-// Derived from 84 sober sessions (2026-04-05 forensic analysis)
+// Derived from 84 baseline research sessions (2026-04-05 analysis)
 // See analysis_csvs/baseline_forensics/GATE_SPEC.md for rationale
 const GATE_SF_FLOOR = 0.10;
 const GATE_SF_CEILING = 5.0;

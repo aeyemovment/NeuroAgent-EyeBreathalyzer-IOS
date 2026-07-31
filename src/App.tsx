@@ -47,6 +47,7 @@ function App() {
   const [cameraPosition, setCameraPosition] = useState('')
   const [subjectNumber, setSubjectNumber] = useState('')
   const [bacValue, setBacValue] = useState('')
+  /** Internal upload labels only — never show EtOH/drunk language in UI */
   const [selfReportLabel, setSelfReportLabel] = useState<'' | 'sober' | 'drunk'>('')
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
   const [submitError, setSubmitError] = useState<string | null>(null)
@@ -115,7 +116,7 @@ function App() {
   // overwrites the direct window.__SESSION_TYPE__ = 'baseline' set in handleStartBaseline.
   // Instead, window.__SESSION_TYPE__ is set directly in handleStartBaseline/handleStartRegularTest.
 
-  // Query Supabase for user's sober baseline after consent accepted
+  // Query Supabase for user's research baseline after consent accepted
   useEffect(() => {
     if (!isUserLoaded || !isSignedIn || !userEmail || !supabaseClient) {
       setBaselineStatus('loading')
@@ -632,7 +633,7 @@ function App() {
       if (!isLastCalibration && features) {
         // Not done yet — need more calibration tests
         const handleStartNextCalibration = () => {
-          // Upload this baseline to Supabase with BAC=0 (sober by definition)
+          // Upload baseline (research calibration) — bac field kept for schema compat only
           window.dispatchEvent(new CustomEvent('upload-with-bac', { detail: { bac: 0 } }))
           const newSessions = [...baselineSessions, features]
           setBaselineSessions(newSessions)
@@ -692,7 +693,7 @@ function App() {
 
       // Last calibration done — all tests complete
       const handleBaselineComplete = () => {
-        // Upload this baseline to Supabase with BAC=0 (sober by definition)
+        // Upload baseline (research calibration) — bac field kept for schema compat only
         window.dispatchEvent(new CustomEvent('upload-with-bac', { detail: { bac: 0 } }))
         if (features) {
           const allSessions = [...baselineSessions, features]
@@ -714,7 +715,7 @@ function App() {
           <div className="results-header-ios"><h1>Calibration Complete</h1></div>
           <div className="results-content-ios">
             <section className="outcome-panel risk-low">
-              <p className="outcome-label">Sober Baseline</p>
+              <p className="outcome-label">Research baseline</p>
               <h2 className="outcome-value">Baseline Established</h2>
             </section>
             <p style={{ padding: '0 16px', color: '#ccc' }}>
@@ -729,38 +730,41 @@ function App() {
       )
     }
 
-    // --- Test session results — BAC or self-report required before submission ---
+    // --- Test session results — research session metadata (no EtOH/BAC UI) ---
     const handleBacSubmit = () => {
       setSubmitError(null)
 
-      const bac = bacValue !== '' ? parseFloat(bacValue) : null
-      const hasBac = bac !== null && !isNaN(bac) && bac >= 0 && bac <= 5
       const hasLabel = selfReportLabel === 'sober' || selfReportLabel === 'drunk'
 
-      if (!hasBac && !hasLabel) {
-        setSubmitError('Enter your BAC level, or select sober/drunk below.')
+      if (!hasLabel) {
+        setSubmitError('Select a research session type below.')
         return
       }
 
       setSubmitStatus('submitting')
 
-      if (hasBac) {
-        // BAC provided → upload to okn_results_v2 (primary table)
+      // Schema still uses bac/selfReport fields internally; UI never shows EtOH language.
+      // Control → bac 0; research-interest → null + label for uncertain table
+      if (selfReportLabel === 'sober') {
         window.dispatchEvent(new CustomEvent('upload-with-bac', {
-          detail: { bac }
+          detail: { bac: 0, selfReportLabel: 'control', researchContext: 'opendementia' }
         }))
       } else {
-        // Self-report only (no BAC) → upload to uncertain_bac_tests
         window.dispatchEvent(new CustomEvent('upload-with-bac', {
-          detail: { bac: null, selfReportLabel, targetTable: 'uncertain_bac_tests' }
+          detail: {
+            bac: null,
+            selfReportLabel: 'research_interest',
+            targetTable: 'uncertain_bac_tests',
+            researchContext: 'opendementia_c9orf72_als_ftd',
+          }
         }))
       }
     }
 
     const elevated =
       testResult.decision === 'likely' || testResult.decision === 'insufficient'
-    // Research edition: no impairment framing in UI
-    const impairmentStatus = elevated
+    // Research edition: no EtOH / impairment framing in UI
+    const researchStatus = elevated
       ? 'Research signal: elevated pattern'
       : 'Research signal: baseline-range pattern'
     const statusTone = elevated ? 'risk-high' : 'risk-low'
@@ -776,28 +780,17 @@ function App() {
 
         <div className="results-content-ios">
           <section className={`outcome-panel ${statusTone}`}>
-            <p className="outcome-label">Assessment</p>
-            <h2 className="outcome-value">{impairmentStatus}</h2>
+            <p className="outcome-label">OpenDementia research assessment</p>
+            <h2 className="outcome-value">{researchStatus}</h2>
+            <p className="outcome-label" style={{ marginTop: 8, fontSize: 12, opacity: 0.85 }}>
+              Not a clinical diagnosis. Not related to alcohol or impairment testing.
+            </p>
           </section>
 
           <section className="subject-panel">
-            <h3>Submit Your BAC</h3>
-            <div className="form-row">
-              <label htmlFor="bac-value">BAC Level</label>
-              <input
-                id="bac-value"
-                type="number"
-                step="0.001"
-                min="0"
-                max="5"
-                value={bacValue}
-                onChange={(e) => setBacValue(e.target.value)}
-                placeholder="0.00"
-                disabled={isUploading || isDone}
-              />
-            </div>
+            <h3>Research session notes</h3>
             <div className="form-row" style={{ marginTop: '8px' }}>
-              <label htmlFor="self-report">Or self-report (no breathalyzer)</label>
+              <label htmlFor="self-report">Session type (research)</label>
               <select
                 id="self-report"
                 value={selfReportLabel}
@@ -806,9 +799,21 @@ function App() {
                 style={{ padding: '8px 12px', borderRadius: '8px', background: '#1a1a2e', color: '#fff', border: '1px solid rgba(255,255,255,0.2)', fontSize: '15px' }}
               >
                 <option value="">-- Select --</option>
-                <option value="sober">Sober</option>
-                <option value="drunk">Drunk</option>
+                <option value="sober">Control / typical session</option>
+                <option value="drunk">Research interest / atypical pattern session</option>
               </select>
+            </div>
+            <div className="form-row" style={{ marginTop: '8px' }}>
+              <label htmlFor="bac-value">Optional study code (optional)</label>
+              <input
+                id="bac-value"
+                type="text"
+                inputMode="decimal"
+                value={bacValue}
+                onChange={(e) => setBacValue(e.target.value)}
+                placeholder="e.g. site-ID or leave blank"
+                disabled={isUploading || isDone}
+              />
             </div>
             {isUploading && <div className="info-text">Uploading...</div>}
             {uploadPhase === 'failed' && <div className="error-text">Upload failed: {uploadError ?? 'unknown error'}</div>}
@@ -1136,12 +1141,12 @@ function App() {
                         checked={soberConfirmed}
                         onChange={(e) => setSoberConfirmed(e.target.checked)}
                       />
-                      <span>I confirm I am completely sober right now</span>
+                      <span>I confirm I am ready for research baseline calibration (rested, able to follow the task)</span>
                     </label>
-                    <h3 style={{ color: '#fff', margin: '0 0 8px' }}>Establish Your Baseline</h3>
+                    <h3 style={{ color: '#fff', margin: '0 0 8px' }}>Establish Your Research Baseline</h3>
                     <p className="start-description" style={{ margin: '0 0 12px' }}>
-                      {MIN_BASELINES} quick 15-second tests while sober establish your personal baseline.
-                      This enables accurate personalized detection.
+                      {MIN_BASELINES} quick 15-second tests establish your personal research baseline
+                      for OpenDementia (dementia research). Not alcohol-related.
                     </p>
                   </>
                 ) : (

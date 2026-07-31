@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What This Project Is
 
-HazyEyes is an alcohol impairment detection system using optokinetic nystagmus (OKN) eye tracking. A web app displays a moving-bar stimulus, tracks eye movements via MediaPipe Face Mesh, computes OKN gain, and classifies impairment level.
+HazyEyes is an dementia research eye-tracking system using optokinetic nystagmus (OKN) eye tracking. A web app displays a moving-bar stimulus, tracks eye movements via MediaPipe Face Mesh, computes OKN gain, and produces research eye-movement signals.
 
 **Safety-critical**: This system detects alcohol impairment. False negatives are dangerous. Treat data integrity and model validation with extreme care.
 
