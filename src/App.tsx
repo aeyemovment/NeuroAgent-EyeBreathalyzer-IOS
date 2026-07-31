@@ -8,6 +8,8 @@ import { runBaselineGate } from './okn-core/baselineGate'
 import type { BaselineMLSession } from './okn-core/baselineGate'
 import { DEFAULT_LANE, RESEARCH_LANES, type ResearchLaneId } from './researchLanes'
 import {
+  COLLABORATE_CTA,
+  COLLABORATE_URL,
   CONTACT_PRIMARY,
   COPYRIGHT_LINE,
   LICENSE_NAME,
@@ -899,6 +901,19 @@ function App() {
             </section>
 
             <section>
+              <h3>Collaborate</h3>
+              <p>
+                Research partners and orgs: please complete the NeuroAgent collaboration form so we
+                can follow up:
+              </p>
+              <p>
+                <a href={COLLABORATE_URL} target="_blank" rel="noopener noreferrer">
+                  {COLLABORATE_URL}
+                </a>
+              </p>
+            </section>
+
+            <section>
               <h3>Contact</h3>
               <p>Primary: {CONTACT_PRIMARY}</p>
               <p>Escalation: kemarearlgreen@neuroagentai.org</p>
@@ -1042,6 +1057,20 @@ function App() {
             </p>
             <p className="start-description" style={{ fontSize: 11, opacity: 0.85, marginTop: 8 }}>
               {NON_COMMERCIAL_SHORT}
+            </p>
+            <p className="start-description" style={{ marginTop: 12 }}>
+              <a
+                className="btn primary start-button"
+                href={COLLABORATE_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ display: 'inline-block', textDecoration: 'none', textAlign: 'center' }}
+              >
+                Collaborate — fill out the form
+              </a>
+            </p>
+            <p className="start-description" style={{ fontSize: 11, opacity: 0.75 }}>
+              {COLLABORATE_CTA}
             </p>
 
             {/* Baseline workflow routing — above auth so start button is visible in landscape */}

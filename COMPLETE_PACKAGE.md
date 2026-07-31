@@ -23,6 +23,7 @@ research_prototype=true · non_commercial=true · not_diagnostic=true
 | **Vercel project** | `hazy-eyes/opendementia` |
 | **Primary contact** | info@neuroagentai.org |
 | **Escalation** | kemarearlgreen@neuroagentai.org |
+| **Collaborate form** | **https://www.theneuroagentai.com/collaborate** |
 
 ---
 
@@ -101,6 +102,10 @@ Then redeploy.
 
 ### Ready-to-post drafts (OpenDementia)
 
+**Always include both CTAs:**
+1. App → https://opendementia.vercel.app  
+2. Collaborate form → https://www.theneuroagentai.com/collaborate  
+
 **X**
 ```
 OpenDementia is live — NeuroAgent open research eye-tracking for dementia research orgs.
@@ -108,7 +113,9 @@ OpenDementia is live — NeuroAgent open research eye-tracking for dementia rese
 Research only. Not a diagnostic.
 Non-commercial license.
 
-→ https://opendementia.vercel.app
+App → https://opendementia.vercel.app
+Collaborate form (please fill out) → https://www.theneuroagentai.com/collaborate
+
 info@neuroagentai.org
 ```
 
@@ -120,7 +127,9 @@ NeuroAgent is opening OpenDementia — an open research OKN / MediaPipe eye-trac
 • Research Non-Commercial License (no commercial use without written license)
 • Not a medical device · not for diagnosis or clinical screening
 
-Preview: https://opendementia.vercel.app
+1) Preview: https://opendementia.vercel.app
+2) Collaborate form: https://www.theneuroagentai.com/collaborate
+
 GitHub: https://github.com/aeyemovment/NeuroAgent-EyeBreathalyzer-IOS
 Contact: info@neuroagentai.org
 ```
@@ -134,7 +143,10 @@ OKN eye-tracking · research only
 🚫 Not a diagnostic
 📜 Non-commercial license
 
-Link in bio → opendementia.vercel.app
+App → opendementia.vercel.app
+Collaborate form → theneuroagentai.com/collaborate
+(please fill this out)
+
 info@neuroagentai.org
 
 #OpenDementia #NeuroAgent #DementiaResearch #ResearchOnly
@@ -198,6 +210,7 @@ info@neuroagentai.org
 - [ ] Add Clerk + Supabase env for full OKN  
 - [ ] CEO APPROVE press before posting  
 - [ ] info@neuroagentai.org monitored  
+- [ ] Direct partners to https://www.theneuroagentai.com/collaborate  
 
 ---
 

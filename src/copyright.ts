@@ -21,3 +21,9 @@ export const NON_COMMERCIAL_SHORT =
 export const LICENSE_NAME = 'Research Non-Commercial License (see LICENSE)'
 
 export const CONTACT_PRIMARY = 'info@neuroagentai.org'
+
+/** NeuroAgent collaboration / interest form — have partners fill this out. */
+export const COLLABORATE_URL = 'https://www.theneuroagentai.com/collaborate'
+
+export const COLLABORATE_CTA =
+  'Research orgs & collaborators: please fill out the NeuroAgent form → https://www.theneuroagentai.com/collaborate'

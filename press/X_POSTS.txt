@@ -1,38 +1,18 @@
-=== X PRIMARY (autism launch day) ===
-NeuroAgent is opening a research preview of EyeBreathalyzer (RareNeuroScreen) for autism + dementia research orgs.
-
-Same app interface. Lane-specific language only.
-Not a diagnostic. Research use only.
-
-Autism lane · public launch today
-→ https://opendementia.vercel.app/?lane=autism
-
-info@neuroagentai.org
-
-=== X DEMENTIA CO-LANE ===
-Double launch, one interface.
-
-EyeBreathalyzer research preview from NeuroAgent:
-• Autism research lane
-• Dementia research lane
-• Shared simulator · copy changes by lane
-
-Research only. Not clinical screening.
-
-https://opendementia.vercel.app/?lane=dementia
-
-=== X ULTRA-SHORT ===
-Research preview live (NeuroAgent):
-EyeBreathalyzer → RareNeuroScreen
-Autism + dementia research lanes · same UI
-Not a medical device.
-
-https://opendementia.vercel.app
-
-=== X PRE-MONDAY TEASER ===
-Monday: NeuroAgent opens the EyeBreathalyzer research preview (RareNeuroScreen) for autism research orgs — same app as the dementia research lane.
+=== OpenDementia — X PRIMARY ===
+OpenDementia is live — NeuroAgent open research eye-tracking for dementia research orgs.
 
 Research only. Not a diagnostic.
+Non-commercial license.
 
-Preview: https://opendementia.vercel.app
+App → https://opendementia.vercel.app
+Collaborate form (please fill out) → https://www.theneuroagentai.com/collaborate
+
 info@neuroagentai.org
+
+=== OpenDementia — X SHORT ===
+OpenDementia (NeuroAgent): dementia research OKN preview.
+
+Not a diagnostic. Non-commercial.
+
+App: https://opendementia.vercel.app
+Join us: https://www.theneuroagentai.com/collaborate

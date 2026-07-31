@@ -1,20 +1,19 @@
-NeuroAgent research preview is open.
+OpenDementia is live.
 
-EyeBreathalyzer · RareNeuroScreen
-For autism + dementia research organizations
-(Same app · different research-lane language)
-
-🔬 Research only
+NeuroAgent open research for dementia research orgs
+OKN eye-tracking · research only
 🚫 Not a diagnostic
-🚫 Not clinical screening
-📬 info@neuroagentai.org
+📜 Non-commercial license
 
-Link in bio → rareneuroscreen.vercel.app
-Add ?lane=autism or ?lane=dementia
+App → opendementia.vercel.app
+Collaborate form → theneuroagentai.com/collaborate
+(please fill this out)
 
-#NeuroAgent #ResearchOnly #AutismResearch #DementiaResearch #NeuroScience #RareNeuro #OpenScience #ResearchPreview
+info@neuroagentai.org
 
---- STORY OVERLAYS ---
-1) NeuroAgent — Research preview open
-2) One app. Two research lanes. Autism · Dementia
-3) Not a diagnosis. Research use only. Link in bio
+#OpenDementia #NeuroAgent #DementiaResearch #ResearchOnly #OpenScience
+
+--- STORY ---
+1) OpenDementia — live
+2) Research only · not a diagnostic
+3) Fill the collaborate form → link in bio

@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client'
 import { ClerkProvider } from '@clerk/clerk-react'
 import App from './App'
 import {
+  COLLABORATE_CTA,
+  COLLABORATE_URL,
   CONTACT_PRIMARY,
   COPYRIGHT_LINE,
   LICENSE_NAME,
@@ -115,6 +117,28 @@ function OpenDementiaLanding() {
       <p style={{ fontSize: 12, color: '#fbbf24' }}>
         Not a dementia diagnostic or screening tool. Not for clinical care.
       </p>
+      <a
+        href={COLLABORATE_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          display: 'block',
+          marginTop: 16,
+          padding: '14px 16px',
+          borderRadius: 12,
+          background: 'linear-gradient(180deg,#62c3ff,#2ea6ff)',
+          color: '#001227',
+          fontWeight: 700,
+          fontSize: 15,
+          textAlign: 'center',
+          textDecoration: 'none',
+        }}
+      >
+        Collaborate with NeuroAgent → fill out the form
+      </a>
+      <p style={{ fontSize: 11, color: '#64748b', marginTop: 8, textAlign: 'center' }}>
+        {COLLABORATE_URL}
+      </p>
       <p
         style={{
           fontSize: 11,
@@ -211,14 +235,36 @@ function OpenDementiaLanding() {
           <p style={{ fontSize: 13, color: '#e2e8f0' }}>
             After env is set and redeployed, the full OKN test UI loads automatically.
           </p>
+          <a
+            href={COLLABORATE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'block',
+              marginTop: 14,
+              padding: '12px 14px',
+              borderRadius: 10,
+              background: '#34d399',
+              color: '#052e16',
+              fontWeight: 700,
+              fontSize: 14,
+              textAlign: 'center',
+              textDecoration: 'none',
+            }}
+          >
+            Next: fill the collaborate form →
+          </a>
           <p style={{ fontSize: 11, color: '#64748b', marginTop: 12 }}>{NON_COMMERCIAL_SHORT}</p>
           <p style={{ fontSize: 12, color: '#64748b' }}>{CONTACT_PRIMARY}</p>
+          <p style={{ fontSize: 11, color: '#94a3b8' }}>{COLLABORATE_CTA}</p>
         </div>
       )}
       <footer style={{ marginTop: 28, fontSize: 10, color: '#475569', lineHeight: 1.4 }}>
         {COPYRIGHT_LINE}
         <br />
         {LICENSE_NAME}
+        <br />
+        Collaborate: {COLLABORATE_URL}
       </footer>
     </div>
   )
