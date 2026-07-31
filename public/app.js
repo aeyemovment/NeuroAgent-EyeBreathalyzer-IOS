@@ -3277,7 +3277,7 @@ function analyzeOKN(samples) {
     let decision = 'likely';
     let label = 'Elevated research pattern';
     let color = 'bad';
-    let detail = 'Eye movement was minimal, so the system could not run a full OKN analysis. Result defaults to Impaired for safety.';
+    let detail = 'Eye movement was minimal, so the system could not run a full OKN analysis. Result defaults to elevated research pattern for safety.';
 
     if (classifierArtifact && featureData) {
       const prediction = predictClassifier(featureData);
@@ -3473,12 +3473,12 @@ function analyzeOKN(samples) {
 
   const minimalMovement = !isFinite(observedRangeNorm) ? false : observedRangeNorm < 0.02;
   if (minimalMovement) {
-    console.log('ℹ️ Detected minimal eye movement; defaulting to Impaired result as a safety precaution.');
+    console.log('Detected minimal eye movement; defaulting to elevated research pattern for investigator review.');
     classifierProbability = 1;
     decision = 'likely';
     label = 'Elevated research pattern';
     color = 'bad';
-    detail = 'Eye movement stayed steady throughout the assessment. Result defaults to Impaired for safety review.';
+    detail = 'Eye movement stayed steady throughout the assessment. Result defaults to elevated research pattern for investigator review.';
   }
 
   if (mGain) mGain.textContent = '—';
@@ -3720,10 +3720,10 @@ function showDecision(res){
       initLocationAndLinks();
       actions.push(goSafe, retry);
     }else if(res.decision==='unlikely'){
-      // add disclaimer & same options if user still feels impaired
+      // research disclaimer (no EtOH / driving messaging)
       const disclaimer = document.createElement('div');
       disclaimer.className = 'hint';
-      disclaimer.textContent = "Research prototype only — not a medical diagnosis. Not for alcohol or impairment decisions.";
+      disclaimer.textContent = "Research prototype only — not a medical diagnosis. Not for alcohol or driving decisions.";
       decisionActions.appendChild(disclaimer);
       actions.push(goSafe, retry);
     }else{
