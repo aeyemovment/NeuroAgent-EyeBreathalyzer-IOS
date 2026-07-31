@@ -180,7 +180,7 @@ function App() {
   }, [isUserLoaded, isSignedIn, userEmail, consentChoice])
 
   useEffect(() => {
-    document.title = 'NeuroAgent · EyeBreathalyzer — Dementia Research'
+    document.title = 'OpenDementia — NeuroAgent Research'
 
     // Initialize Supabase for anon uploads (no Clerk auth)
     if (supabaseClient) {
@@ -834,19 +834,18 @@ function App() {
             ref={consentCardRef}
             onScroll={handleConsentScroll}
           >
-            <h2>NeuroAgent · EyeBreathalyzer Research Consent</h2>
+            <h2>OpenDementia Research Consent</h2>
             <p style={{ fontSize: 12, opacity: 0.85 }}>
-              Layer A — app access / research preview. Active lane:{' '}
-              <strong>{RESEARCH_LANES[researchLane].label}</strong>. Modular study consent master
+              Layer A — app access / research preview (NeuroAgent). Modular study consent master
               (v0.9) is a separate IRB drafting template — not auto-enrolled here.
             </p>
             <section>
               <h3>Purpose</h3>
               <p>
-                NeuroAgent provides this EyeBreathalyzer research app (HazyEyesIOS OKN pipeline) for
-                non-commercial <strong>dementia research</strong> and education. With your permission,
-                anonymized eye-movement recordings and related signals may be stored to improve
-                research algorithms.
+                <strong>OpenDementia</strong> is a NeuroAgent open research app (OKN / MediaPipe
+                pipeline) for non-commercial <strong>dementia research</strong> and education. With
+                your permission, anonymized eye-movement recordings and related signals may be stored
+                to improve research algorithms.
               </p>
               <p>
                 <strong>Not a medical device.</strong> Not for diagnosis, treatment, or clinical
@@ -900,9 +899,9 @@ function App() {
                 />
                 <span>
                   I have read and understood the information above. I agree this is a research
-                  prototype only (not diagnostic). I voluntarily allow NeuroAgent / EyeBreathalyzer
-                  research tools to store and use my anonymized data for non-commercial research and
-                  algorithm development under the active research lane.
+                  prototype only (not diagnostic). I voluntarily allow OpenDementia / NeuroAgent
+                  research tools to store and use my anonymized data for non-commercial dementia
+                  research and algorithm development.
                 </span>
               </label>
               {!consentChecked && (
@@ -1014,9 +1013,9 @@ function App() {
         <div className="start-screen">
           <div className="start-card">
             <p className="start-description" style={{ marginBottom: 4, letterSpacing: '0.08em', textTransform: 'uppercase', fontSize: 11 }}>
-              NeuroAgent · dementia research
+              NeuroAgent · open research
             </p>
-            <h1 className="start-heading">EyeBreathalyzer</h1>
+            <h1 className="start-heading">OpenDementia</h1>
             <p className="start-description">{RESEARCH_LANES.dementia.tagline}</p>
             <p className="start-description" style={{ fontSize: 12 }}>
               {RESEARCH_LANES.dementia.nonClaim}

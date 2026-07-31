@@ -1,7 +1,7 @@
 {
-  "name": "neuroagent-eyebreathalyzer-ios",
-  "version": "1.1.0",
-  "description": "NeuroAgent EyeBreathalyzer — HazyEyesIOS OKN/MediaPipe research app (autism, dementia, rare neuro). Research only.",
+  "name": "opendementia",
+  "version": "1.2.0",
+  "description": "OpenDementia — NeuroAgent open research OKN/MediaPipe eye-tracking app for dementia research. Research only — not diagnostic.",
   "type": "module",
   "scripts": {
     "dev": "vite",

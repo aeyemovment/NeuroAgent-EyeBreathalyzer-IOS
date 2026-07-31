@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'org.neuroagentai.eyebreathalyzer',
-  appName: 'NeuroAgent EyeBreathalyzer',
+  appId: 'org.neuroagentai.opendementia',
+  appName: 'OpenDementia',
   webDir: 'dist',
   bundledWebRuntime: false,
   server: {

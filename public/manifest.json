@@ -1,7 +1,7 @@
 {
-  "name": "NeuroAgent EyeBreathalyzer",
-  "short_name": "EyeBreathalyzer",
-  "description": "NeuroAgent research app: OKN eye tracking for autism, dementia, and rare neuro research. Not for diagnosis.",
+  "name": "OpenDementia",
+  "short_name": "OpenDementia",
+  "description": "OpenDementia — NeuroAgent open research OKN eye-tracking for dementia research. Not for diagnosis.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0b1220",

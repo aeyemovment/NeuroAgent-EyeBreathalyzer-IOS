@@ -53,7 +53,7 @@ function ResearchShell({ children }: { children: React.ReactNode }) {
             fontFamily: 'system-ui, sans-serif',
           }}
         >
-          Dementia research preview · Clerk not configured — add VITE_CLERK_PUBLISHABLE_KEY on Vercel for full OKN sign-in.
+          OpenDementia research preview · Add VITE_CLERK_PUBLISHABLE_KEY on Vercel for full OKN sign-in.
         </div>
       )}
       {children}
@@ -75,14 +75,14 @@ if (hasClerk) {
   ReactDOM.createRoot(root).render(
     <React.StrictMode>
       <ResearchShell>
-        <AppDementiaNoAuth />
+        <OpenDementiaLanding />
       </ResearchShell>
     </React.StrictMode>,
   )
 }
 
-/** Dementia-only landing when Clerk env is missing (so Vercel still launches). */
-function AppDementiaNoAuth() {
+/** OpenDementia landing when Clerk env is missing (so Vercel still launches). */
+function OpenDementiaLanding() {
   const [accepted, setAccepted] = React.useState(false)
 
   return (
@@ -98,12 +98,12 @@ function AppDementiaNoAuth() {
       }}
     >
       <p style={{ fontSize: 11, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#fbbf24' }}>
-        NeuroAgent · dementia research
+        NeuroAgent · open research
       </p>
-      <h1 style={{ fontSize: 28, margin: '8px 0' }}>EyeBreathalyzer</h1>
-      <p style={{ color: '#94a3b8', fontSize: 14, lineHeight: 1.5 }}>
-        Research app for <strong style={{ color: '#e2e8f0' }}>dementia research organizations</strong>.
-        MediaPipe OKN eye-tracking protocol. Research only · non-commercial · not for diagnosis.
+      <h1 style={{ fontSize: 32, margin: '8px 0', fontWeight: 700 }}>OpenDementia</h1>
+      <p style={{ color: '#94a3b8', fontSize: 15, lineHeight: 1.55 }}>
+        Open research eye-tracking (OKN) for <strong style={{ color: '#e2e8f0' }}>dementia research</strong> organizations.
+        Research only · non-commercial · not for diagnosis.
       </p>
       <p style={{ fontSize: 12, color: '#fbbf24' }}>
         Not a dementia diagnostic or screening tool. Not for clinical care.
@@ -121,7 +121,7 @@ function AppDementiaNoAuth() {
         >
           <h2 style={{ fontSize: 16, marginTop: 0 }}>Research consent</h2>
           <p style={{ fontSize: 13, color: '#94a3b8', lineHeight: 1.5 }}>
-            I understand this NeuroAgent EyeBreathalyzer preview is for dementia research only.
+            I understand OpenDementia is a NeuroAgent research preview for dementia research only.
             It is not a medical device and must not be used for diagnosis or clinical screening.
           </p>
           <p style={{ fontSize: 12, color: '#64748b' }}>Contact: info@neuroagentai.org</p>
@@ -164,7 +164,7 @@ function AppDementiaNoAuth() {
             background: 'rgba(120,53,15,0.25)',
           }}
         >
-          <h2 style={{ fontSize: 16, marginTop: 0 }}>Dementia research mode</h2>
+          <h2 style={{ fontSize: 16, marginTop: 0 }}>OpenDementia</h2>
           <p style={{ fontSize: 13, color: '#fde68a', lineHeight: 1.5 }}>
             Terms accepted. Full camera OKN protocol needs Clerk + Supabase on Vercel:
           </p>
@@ -177,10 +177,10 @@ function AppDementiaNoAuth() {
             </li>
           </ul>
           <p style={{ fontSize: 13, color: '#e2e8f0' }}>
-            After those are set and redeployed, the full EyeBreathalyzer test UI loads automatically.
+            After env is set and redeployed, the full OKN test UI loads automatically.
           </p>
           <p style={{ fontSize: 12, color: '#64748b' }}>
-            App: neuroagent-eyebreathalyzer.vercel.app · GitHub: aeyemovment/NeuroAgent-EyeBreathalyzer-IOS
+            info@neuroagentai.org
           </p>
         </div>
       )}
