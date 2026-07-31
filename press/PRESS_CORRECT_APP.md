@@ -1,6 +1,6 @@
 # Press — CORRECT APP (HazyEyesIOS-main)
 
-**Do not promote** https://[DEPLOY-HazyEyesIOS-main] as the primary product.
+**Do not promote** https://neuroagent-eyebreathalyzer.vercel.app as the primary product.
 
 **Primary app (this repo):** HazyEyesIOS MediaPipe OKN EyeBreathalyzer  
 **Repo:** `~/HazyEyesIOS-main`  

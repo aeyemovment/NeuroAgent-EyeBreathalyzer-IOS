@@ -3,7 +3,7 @@
 **Status:** DRAFT — do not post until CEO/operator approval  
 **Product:** NeuroAgent · EyeBreathalyzer · RareNeuroScreen  
 **Primary contact:** info@neuroagentai.org  
-**App:** https://[DEPLOY-HazyEyesIOS-main]  
+**App:** https://neuroagent-eyebreathalyzer.vercel.app  
 **Autism public launch:** Monday 2026-08-03  
 **Dementia lane:** same app (double launch · shared UI)  
 **Framing:** Research preview only · not clinical · not diagnostic · non-commercial  
@@ -48,7 +48,7 @@ The preview uses a **shared application interface** with **lane-specific languag
 - A browser research preview of synthetic eye-dynamics (gaze extremes, rebound patterns, device-agnostic sampling profiles)  
 - Built for non-commercial research and education  
 - Contact: **info@neuroagentai.org**  
-- Preview: **https://[DEPLOY-HazyEyesIOS-main]**  
+- Preview: **https://neuroagent-eyebreathalyzer.vercel.app**  
   - Autism: `?lane=autism`  
   - Dementia: `?lane=dementia`  
 
@@ -77,7 +77,7 @@ Same app interface. Lane-specific language only.
 Not a diagnostic. Research use only.
 
 Autism lane · public launch today
-→ https://[DEPLOY-HazyEyesIOS-main]/?lane=autism
+→ https://neuroagent-eyebreathalyzer.vercel.app/?lane=autism
 
 info@neuroagentai.org
 ```
@@ -93,7 +93,7 @@ EyeBreathalyzer research preview from NeuroAgent:
 
 Research only. Not clinical screening.
 
-https://[DEPLOY-HazyEyesIOS-main]/?lane=dementia
+https://neuroagent-eyebreathalyzer.vercel.app/?lane=dementia
 ```
 
 ### C) Ultra-short  
@@ -103,7 +103,7 @@ EyeBreathalyzer → RareNeuroScreen
 Autism + dementia research lanes · same UI
 Not a medical device.
 
-https://[DEPLOY-HazyEyesIOS-main]
+https://neuroagent-eyebreathalyzer.vercel.app
 ```
 
 ### D) Thread (optional, 4 posts)
@@ -132,8 +132,8 @@ Questions: info@neuroagentai.org
 **4/4**  
 ```
 Try the preview:
-https://[DEPLOY-HazyEyesIOS-main]/?lane=autism
-https://[DEPLOY-HazyEyesIOS-main]/?lane=dementia
+https://neuroagent-eyebreathalyzer.vercel.app/?lane=autism
+https://neuroagent-eyebreathalyzer.vercel.app/?lane=dementia
 ```
 
 ### Hashtags (use sparingly on X)  
@@ -161,9 +161,9 @@ Who it’s for:
 Research labs, academic groups, and nonprofit research consortia evaluating remote neurocognitive research tooling.
 
 Preview:
-https://[DEPLOY-HazyEyesIOS-main]
-• Autism lane: https://[DEPLOY-HazyEyesIOS-main]/?lane=autism
-• Dementia lane: https://[DEPLOY-HazyEyesIOS-main]/?lane=dementia
+https://neuroagent-eyebreathalyzer.vercel.app
+• Autism lane: https://neuroagent-eyebreathalyzer.vercel.app/?lane=autism
+• Dementia lane: https://neuroagent-eyebreathalyzer.vercel.app/?lane=dementia
 
 Research inquiries: info@neuroagentai.org
 
@@ -179,7 +179,7 @@ EyeBreathalyzer (RareNeuroScreen) — shared app for autism + dementia research 
 
 Research use only. Not for diagnosis or clinical screening.
 
-→ https://[DEPLOY-HazyEyesIOS-main]
+→ https://neuroagent-eyebreathalyzer.vercel.app
 info@neuroagentai.org
 ```
 
@@ -248,7 +248,7 @@ Avoid brain-scan “clinical” stock that implies diagnosis. Prefer abstract ey
 
 - [ ] CEO/operator approval to post  
 - [ ] `info@neuroagentai.org` monitored  
-- [ ] https://[DEPLOY-HazyEyesIOS-main] returns 200  
+- [ ] https://neuroagent-eyebreathalyzer.vercel.app returns 200  
 - [ ] Autism Monday date correct if posting before 2026-08-03 (use “opening Monday” variant)  
 - [ ] No clinical / screening claims in final copy  
 - [ ] HazyEyes commercial / impairment language **not** used  
@@ -261,7 +261,7 @@ Monday: NeuroAgent opens the EyeBreathalyzer research preview (RareNeuroScreen) 
 
 Research only. Not a diagnostic.
 
-Preview: https://[DEPLOY-HazyEyesIOS-main]
+Preview: https://neuroagent-eyebreathalyzer.vercel.app
 info@neuroagentai.org
 ```
 
@@ -273,4 +273,4 @@ info@neuroagentai.org
 NeuroAgent builds research tooling for autism, dementia, and rare neurological disease organizations. EyeBreathalyzer (RareNeuroScreen) is a research-only synthetic eye-dynamics preview — not for clinical diagnosis.
 
 **Contact**  
-info@neuroagentai.org · https://neuroagentai.org · https://[DEPLOY-HazyEyesIOS-main]  
+info@neuroagentai.org · https://neuroagentai.org · https://neuroagent-eyebreathalyzer.vercel.app  

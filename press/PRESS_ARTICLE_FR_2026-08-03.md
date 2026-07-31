@@ -19,9 +19,9 @@ Le lancement est conçu comme un **double lancement avec une seule interface** :
 
 L’aperçu navigateur permet d’explorer des **dynamiques oculaires synthétiques** dans un cadre éducatif contrôlé—extrêmes du regard, rebonds, profils d’échantillonnage multi-appareils. La voie **autisme** est prévue pour le **lancement public du lundi 3 août 2026** ; la voie **démence** utilise la même application.
 
-- Aperçu : https://[DEPLOY-HazyEyesIOS-main]  
-- Voie autisme : https://[DEPLOY-HazyEyesIOS-main]/?lane=autism  
-- Voie démence : https://[DEPLOY-HazyEyesIOS-main]/?lane=dementia  
+- Aperçu : https://neuroagent-eyebreathalyzer.vercel.app  
+- Voie autisme : https://neuroagent-eyebreathalyzer.vercel.app/?lane=autism  
+- Voie démence : https://neuroagent-eyebreathalyzer.vercel.app/?lane=dementia  
 
 ### Limites claires
 
@@ -42,7 +42,7 @@ Laboratoires de recherche, groupes universitaires et consortia de recherche à b
 
 **Médias et recherche :** info@neuroagentai.org  
 **Web :** https://neuroagentai.org  
-**Application :** https://[DEPLOY-HazyEyesIOS-main]  
+**Application :** https://neuroagent-eyebreathalyzer.vercel.app  
 
 ---
 

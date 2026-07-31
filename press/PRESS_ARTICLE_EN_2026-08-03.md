@@ -19,9 +19,9 @@ The release is designed as a **double launch with one interface**: researchers c
 
 The browser preview lets labs explore **synthetic eye-dynamics** in a controlled, educational setting—including gaze extremes, rebound patterns, and device-agnostic sampling profiles. The autism research lane is scheduled for **public launch on Monday, 3 August 2026**; the dementia lane uses the same application and is ready for co-launch framing.
 
-- Preview: https://[DEPLOY-HazyEyesIOS-main]  
-- Autism lane: https://[DEPLOY-HazyEyesIOS-main]/?lane=autism  
-- Dementia lane: https://[DEPLOY-HazyEyesIOS-main]/?lane=dementia  
+- Preview: https://neuroagent-eyebreathalyzer.vercel.app  
+- Autism lane: https://neuroagent-eyebreathalyzer.vercel.app/?lane=autism  
+- Dementia lane: https://neuroagent-eyebreathalyzer.vercel.app/?lane=dementia  
 
 ### Clear limits
 
@@ -42,7 +42,7 @@ The release is aimed at **research labs, academic groups, and nonprofit research
 
 **Media and research inquiries:** info@neuroagentai.org  
 **Web:** https://neuroagentai.org  
-**App:** https://[DEPLOY-HazyEyesIOS-main]  
+**App:** https://neuroagent-eyebreathalyzer.vercel.app  
 
 ---
 
