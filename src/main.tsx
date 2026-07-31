@@ -148,7 +148,9 @@ function OpenDementiaLanding() {
       <h1 style={{ fontSize: 32, margin: '8px 0', fontWeight: 700 }}>OpenDementia</h1>
       <p style={{ color: '#94a3b8', fontSize: 15, lineHeight: 1.55 }}>
         You are on the <strong style={{ color: '#e2e8f0' }}>OpenDementia app</strong> — open research
-        eye-tracking (OKN) for dementia research organizations.
+        eye-tracking (OKN) for dementia research organizations. It can help researchers{' '}
+        <strong style={{ color: '#e2e8f0' }}>prioritize patients for referral to targeted genetic testing</strong>{' '}
+        (e.g. C9ORF72 ALS-FTD pathways for gene-specific trials). Not a genetic test.
       </p>
       <p style={{ fontSize: 13, color: '#7dd3fc' }}>
         App link:{' '}

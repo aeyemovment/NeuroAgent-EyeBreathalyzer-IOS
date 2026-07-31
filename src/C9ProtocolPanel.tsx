@@ -99,12 +99,16 @@ export function C9ProtocolPanel() {
         <strong>Protocol:</strong> {C9_PROTOCOL.version} · {C9_PROTOCOL.mutation}
       </p>
       <p style={styles.muted}>{C9_PROTOCOL.purpose}</p>
+      <p style={styles.muted}>
+        <strong>Intended research use:</strong> {C9_PROTOCOL.intendedUse}
+      </p>
 
       <div style={styles.warn}>
-        <strong>Research prototype only.</strong> Does not diagnose ALS-FTD or detect C9ORF72.
-        Gene-specific trial eligibility requires genetic confirmation and the trial’s inclusion
-        criteria. Demo metrics from the sample OKN video are synthetic / illustrative for
-        investigator workflow design.
+        <strong>Research decision-support only.</strong> OpenDementia can help{' '}
+        <em>prioritize who may benefit from referral for targeted genetic testing</em> (e.g.
+        C9ORF72) for gene-specific trial pathways. It does <strong>not</strong> diagnose ALS-FTD
+        and does <strong>not</strong> replace lab genetic testing. Trial eligibility requires
+        genetic confirmation + the trial’s criteria. Demo metrics are synthetic / illustrative.
       </div>
 
       <video
@@ -125,16 +129,22 @@ export function C9ProtocolPanel() {
         onClick={runDemo}
         style={{ ...styles.btn, background: '#a78bfa', color: '#1e1b4b' }}
       >
-        {ran ? 'Re-run demo research analysis' : 'Run demo research analysis (C9 trial-interest flag)'}
+        {ran
+          ? 'Re-run demo: genetic-testing priority flag'
+          : 'Run demo: priority for targeted genetic testing (C9ORF72 pathway)'}
       </button>
 
       {result && (
         <div style={{ marginTop: 16 }}>
           <p style={{ fontSize: 14, margin: '0 0 8px' }}>
-            Trial-interest band (research):{' '}
+            Priority for targeted genetic testing (research):{' '}
             <strong style={{ color: bandColor, textTransform: 'uppercase' }}>
-              {result.trialInterestBand}
+              {result.geneticTestingReferralBand}
             </strong>
+          </p>
+          <p style={{ fontSize: 12, color: '#c4b5fd', margin: '0 0 8px' }}>
+            Elevated / moderate → consider genetic counseling + C9ORF72 testing referral for
+            gene-specific trial screening. Not a genotype result.
           </p>
           <p style={styles.muted}>{result.investigatorSummary}</p>
 

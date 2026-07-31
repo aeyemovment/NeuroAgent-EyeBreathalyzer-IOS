@@ -1,39 +1,50 @@
 /**
- * OpenDementia — ALS-FTD / C9ORF72 trial-interest research protocol
+ * OpenDementia — ALS-FTD / C9ORF72 targeted genetic-testing referral protocol
  *
  * RESEARCH PROTOTYPE ONLY.
+ * Intended use: help clinicians/researchers prioritize who may benefit from
+ * targeted genetic counseling and C9ORF72 testing for gene-specific trials.
  * Does NOT diagnose ALS, FTD, ALS-FTD, or C9ORF72 genotype.
- * Genetic confirmation is required for any gene-specific clinical trial.
- * Outputs are exploratory research signals for investigator-facing trial referral workflows.
+ * Genetic confirmation is required before any gene-specific clinical trial.
  */
 
-export const C9_PROTOCOL_ID = 'opendementia-c9orf72-als-ftd-v0.1'
+export const C9_PROTOCOL_ID = 'opendementia-c9orf72-als-ftd-v0.2'
 
 export const C9_PROTOCOL = {
   id: C9_PROTOCOL_ID,
-  name: 'ALS-FTD · C9ORF72 trial-interest research flag',
-  version: '0.1',
+  name: 'ALS-FTD · C9ORF72 — screen for targeted genetic testing',
+  version: '0.2',
   mutation: 'C9ORF72 (hexanucleotide repeat expansion) — gene-specific trials',
   phenotype: 'ALS-FTD spectrum (research framing)',
   purpose:
-    'Help dementia / ALS research teams flag participants who may warrant referral to C9ORF72 gene-specific clinical-trial screening workflows. Not a genetic test.',
+    'Help dementia / ALS research teams screen patients who may warrant referral for ' +
+    'targeted genetic counseling and C9ORF72 testing, so investigators can identify ' +
+    'candidates for gene-specific clinical trials. Research decision-support only — not a genetic test.',
+  intendedUse:
+    'Research decision-support to prioritize referral for targeted genetic testing (e.g. C9ORF72) ' +
+    'and subsequent gene-specific trial screening pathways.',
   demoVideo: '/demo/okn_demo_c9orf72.mp4',
   demoPoster: '/demo/frames/frame_01.jpg',
   collaborateUrl:
     'https://www.theneuroagentai.com/collaborate?source=OpenDementia&protocol=C9ORF72-ALS-FTD&app=https%3A%2F%2Fopendementia.vercel.app',
   nonClaims: [
     'Does not diagnose ALS, FTD, or ALS-FTD.',
-    'Does not detect or confirm C9ORF72 genotype.',
-    'Does not replace clinical evaluation, EMG, imaging, or genetic counseling/testing.',
+    'Does not detect or confirm C9ORF72 genotype — laboratory genetic testing is required.',
+    'Does not replace clinical evaluation, EMG, imaging, or genetic counseling.',
+    '“Screen for genetic testing” means research prioritization for referral, not a stand-alone diagnosis.',
     'Trial eligibility is determined only by the trial protocol and genetic confirmation.',
-    'Demo analysis on uploaded/sample video is synthetic / illustrative for research workflow design.',
+    'Demo analysis on sample video is synthetic / illustrative for research workflow design.',
   ],
   researchFlags: [
     { id: 'saccade_irregularity', label: 'Saccade irregularity index (research)', unit: '0–1' },
     { id: 'pursuit_gain_asym', label: 'Pursuit gain asymmetry (research)', unit: '0–1' },
     { id: 'fixation_instability', label: 'Fixation instability index (research)', unit: '0–1' },
     { id: 'okn_fatigue', label: 'OKN fatigue slope (research)', unit: 'a.u.' },
-    { id: 'composite_c9_interest', label: 'Composite C9 trial-interest flag (research)', unit: '0–1' },
+    {
+      id: 'composite_c9_interest',
+      label: 'Composite flag — priority for targeted genetic testing (research)',
+      unit: '0–1',
+    },
   ],
 } as const
 
@@ -44,8 +55,9 @@ export type C9ResearchResult = {
   demoFile: string
   /** Illustrative research signals only */
   metrics: Record<string, number>
-  /** low | moderate | elevated — research interest only */
+  /** low | moderate | elevated — priority for genetic-testing referral (research) */
   trialInterestBand: 'low' | 'moderate' | 'elevated'
+  geneticTestingReferralBand: 'low' | 'moderate' | 'elevated'
   investigatorSummary: string
   requiredNextSteps: string[]
   disclaimers: string[]
@@ -53,6 +65,7 @@ export type C9ResearchResult = {
   researchPrototype: true
   notGeneticTest: true
   notDiagnostic: true
+  helpsPrioritizeGeneticTesting: true
 }
 
 /** Deterministic pseudo-metrics from demo context for workflow demos (not clinical). */
@@ -86,23 +99,25 @@ export function runDemoC9ResearchAnalysis(seed = 'eyebreathalyzer-3-demo'): C9Re
       composite_c9_interest: composite,
     },
     trialInterestBand,
+    geneticTestingReferralBand: trialInterestBand,
     investigatorSummary:
       trialInterestBand === 'elevated'
-        ? 'Research demo: composite interest flag elevated. Suitable for investigator review of whether to offer genetic counseling / C9ORF72 testing pathway toward gene-specific trial screening. Not a diagnosis.'
+        ? 'Research demo: elevated priority for targeted genetic testing referral (e.g. genetic counseling → C9ORF72 testing). May help identify candidates for gene-specific clinical-trial screening after genotype is confirmed. Not a diagnosis or genetic result.'
         : trialInterestBand === 'moderate'
-          ? 'Research demo: intermediate interest flag. Consider research enrollment context and standard clinical/genetic pathways. Not a diagnosis.'
-          : 'Research demo: lower composite interest flag. Still research-only; does not rule out genotype or phenotype. Not a diagnosis.',
+          ? 'Research demo: intermediate priority for discussing genetic counseling / targeted testing in context of clinical history. Not a diagnosis or genetic result.'
+          : 'Research demo: lower priority flag on this demo session. Does not rule out C9ORF72 or ALS-FTD. Not a diagnosis or genetic result.',
     requiredNextSteps: [
       'Confirm research consent / IRB pathway for any human subjects use.',
       'Clinical evaluation by neurology (ALS / FTD specialist as appropriate).',
-      'Genetic counseling before C9ORF72 testing.',
-      'Gene-specific trial eligibility only after confirmed genotype + trial inclusion criteria.',
-      'Register collaborator interest: ' + C9_PROTOCOL.collaborateUrl,
+      'If priority flag warrants: refer for genetic counseling, then targeted C9ORF72 testing.',
+      'Gene-specific trial screening only after confirmed genotype + trial inclusion criteria.',
+      'Register collaborator / trial network interest: ' + C9_PROTOCOL.collaborateUrl,
     ],
     disclaimers: [...C9_PROTOCOL.nonClaims],
     syntheticOnly: true,
     researchPrototype: true,
     notGeneticTest: true,
     notDiagnostic: true,
+    helpsPrioritizeGeneticTesting: true,
   }
 }

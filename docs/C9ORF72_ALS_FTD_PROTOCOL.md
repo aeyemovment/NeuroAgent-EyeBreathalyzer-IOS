@@ -1,43 +1,38 @@
-# OpenDementia — ALS-FTD / C9ORF72 trial-interest research protocol
+# OpenDementia — Screen for targeted genetic testing (C9ORF72 / ALS-FTD)
 
-**Protocol ID:** `opendementia-c9orf72-als-ftd-v0.1`  
+**Protocol ID:** `opendementia-c9orf72-als-ftd-v0.2`  
 **Product:** OpenDementia (NeuroAgent)  
-**Demo asset:** `public/demo/okn_demo_c9orf72.mp4` (from `eyebreathalyzer  3.mov`)
+**Demo asset:** `public/demo/okn_demo_c9orf72.mp4`
 
-## Purpose
+## Intended research use
 
-Help **research teams** design a workflow to **flag participants who may warrant referral** toward **C9ORF72 gene-specific clinical trial screening** (ALS-FTD spectrum).
+Help dementia / ALS research teams **screen patients who may benefit from referral for targeted genetic testing** (starting with **C9ORF72**), so investigators can identify candidates for **gene-specific clinical trials**.
 
-## Hard limits (non-negotiable)
+| Step | Action |
+|------|--------|
+| 1 | Research consent + non-commercial terms |
+| 2 | OKN / eye-dynamics session (or demo analysis) |
+| 3 | Review **priority band for targeted genetic testing** (low / moderate / elevated) |
+| 4 | If warranted: **genetic counseling → C9ORF72 lab testing** |
+| 5 | Gene-specific trial screening **only after confirmed genotype** + trial criteria |
+| 6 | Collaborator form: https://www.theneuroagentai.com/collaborate |
 
-| Claim | Status |
-|-------|--------|
-| Diagnoses ALS / FTD / ALS-FTD | **Never** |
-| Detects C9ORF72 genotype | **Never** |
-| Replaces genetic testing | **Never** |
-| Trial enrollment decision | **Trial + genetics only** |
-| Demo video analysis | **Synthetic / illustrative research flags** |
+## What this is / is not
 
-## Workflow for investigators
+| This **is** | This is **not** |
+|-------------|-----------------|
+| Research decision-support for **genetic-testing referral priority** | A genetic test |
+| A way to help find candidates for **gene-specific trial pathways** | A diagnosis of ALS/FTD/ALS-FTD |
+| Compatible with investigator trial-recruitment workflows | A substitute for counseling, EMG, imaging, or lab genotype |
 
-1. Research consent (OpenDementia Layer A) + non-commercial license  
-2. Run OKN / eye-dynamics session (live) or **demo analysis** on sample video  
-3. Review composite **trial-interest band** (research only): low / moderate / elevated  
-4. If elevated interest: genetic counseling → C9ORF72 testing (outside this app)  
-5. Gene-specific trial screening only after confirmed genotype + trial criteria  
-6. Register collaborator: https://www.theneuroagentai.com/collaborate  
+## Hard limits
 
-## Demo metrics (illustrative)
-
-- Saccade irregularity index  
-- Pursuit gain asymmetry  
-- Fixation instability  
-- OKN fatigue slope  
-- Composite C9 trial-interest flag  
-
-These are **not** validated diagnostic biomarkers in this release.
+- Does **not** detect or confirm C9ORF72 genotype.  
+- Does **not** enroll patients in trials.  
+- Demo video metrics are **synthetic / illustrative** in this release.  
+- Research Non-Commercial License applies.
 
 ## App
 
 https://opendementia.vercel.app  
-(After accept terms → C9ORF72 protocol panel with demo video)
+(After accept terms → C9ORF72 protocol panel)

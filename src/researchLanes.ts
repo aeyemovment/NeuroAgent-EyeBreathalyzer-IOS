@@ -12,9 +12,10 @@ export const RESEARCH_LANES: Record<ResearchLaneId, ResearchLane> = {
   dementia: {
     id: 'dementia',
     label: 'Dementia research',
-    tagline: 'Open research OKN / eye-dynamics for dementia research organizations',
+    tagline:
+      'Open research OKN for dementia · help prioritize referral for targeted genetic testing (e.g. C9ORF72)',
     nonClaim:
-      'Not a dementia diagnostic or screening tool. Research use only — not for clinical care.',
+      'Research decision-support only. Not a dementia diagnosis and not a genetic test — lab confirmation required for genotype and trial eligibility.',
   },
 }
 
