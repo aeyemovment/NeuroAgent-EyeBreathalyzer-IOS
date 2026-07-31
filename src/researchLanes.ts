@@ -1,5 +1,5 @@
-/** Research lanes — same OKN app interface; language only. */
-export type ResearchLaneId = 'autism' | 'dementia' | 'rare-neuro'
+/** Dementia-focused research edition (single product focus). */
+export type ResearchLaneId = 'dementia'
 
 export interface ResearchLane {
   id: ResearchLaneId
@@ -9,37 +9,17 @@ export interface ResearchLane {
 }
 
 export const RESEARCH_LANES: Record<ResearchLaneId, ResearchLane> = {
-  autism: {
-    id: 'autism',
-    label: 'Autism research',
-    tagline: 'NeuroAgent · autism research lane (public launch Mon 2026-08-03)',
-    nonClaim:
-      'Not an autism diagnostic or screening tool. Research use only — synthetic/illustrative analysis of eye-movement signals.',
-  },
   dementia: {
     id: 'dementia',
     label: 'Dementia research',
-    tagline: 'NeuroAgent · dementia research lane',
+    tagline: 'NeuroAgent · dementia research (synthetic OKN / eye-dynamics preview)',
     nonClaim:
-      'Not a dementia diagnostic or screening tool. Research use only — synthetic/illustrative analysis of eye-movement signals.',
-  },
-  'rare-neuro': {
-    id: 'rare-neuro',
-    label: 'Rare neuro research',
-    tagline: 'NeuroAgent · rare neurological disease research lane',
-    nonClaim:
-      'Not a clinical diagnostic tool. Research use only — synthetic/illustrative analysis of eye-movement signals.',
+      'Not a dementia diagnostic or screening tool. Research use only — not for clinical care.',
   },
 }
 
-export const DEFAULT_LANE: ResearchLaneId = 'autism'
-export const AUTISM_PUBLIC_LAUNCH_DATE = '2026-08-03'
+export const DEFAULT_LANE: ResearchLaneId = 'dementia'
 
 export function parseLaneFromQuery(): ResearchLaneId {
-  if (typeof window === 'undefined') return DEFAULT_LANE
-  const q = new URLSearchParams(window.location.search).get('lane')?.toLowerCase()
-  if (q === 'dementia' || q === 'ad') return 'dementia'
-  if (q === 'rare-neuro' || q === 'rare') return 'rare-neuro'
-  if (q === 'autism' || q === 'asd') return 'autism'
-  return DEFAULT_LANE
+  return 'dementia'
 }

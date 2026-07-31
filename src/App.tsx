@@ -6,12 +6,7 @@ import { parseUploadEvent, resolveBacAction } from './okn-core/uploadHelpers'
 import type { UploadPhase } from './okn-core/uploadHelpers'
 import { runBaselineGate } from './okn-core/baselineGate'
 import type { BaselineMLSession } from './okn-core/baselineGate'
-import {
-  DEFAULT_LANE,
-  RESEARCH_LANES,
-  parseLaneFromQuery,
-  type ResearchLaneId,
-} from './researchLanes'
+import { DEFAULT_LANE, RESEARCH_LANES, type ResearchLaneId } from './researchLanes'
 import './styles.css'
 
 declare global {
@@ -53,7 +48,7 @@ function App() {
   const [consentLoading, setConsentLoading] = useState(true)
   const [consentScrolledToEnd, setConsentScrolledToEnd] = useState(false)
   const [consentChecked, setConsentChecked] = useState(false)
-  const [researchLane, setResearchLane] = useState<ResearchLaneId>(DEFAULT_LANE)
+  const [researchLane] = useState<ResearchLaneId>(DEFAULT_LANE)
   const [uploadPhase, setUploadPhase] = useState<UploadPhase>('idle')
   const [uploadRowId, setUploadRowId] = useState<string | null>(null)
   const [uploadError, setUploadError] = useState<string | null>(null)
@@ -185,8 +180,7 @@ function App() {
   }, [isUserLoaded, isSignedIn, userEmail, consentChoice])
 
   useEffect(() => {
-    document.title = 'NeuroAgent · EyeBreathalyzer (research)'
-    setResearchLane(parseLaneFromQuery())
+    document.title = 'NeuroAgent · EyeBreathalyzer — Dementia Research'
 
     // Initialize Supabase for anon uploads (no Clerk auth)
     if (supabaseClient) {
@@ -850,13 +844,13 @@ function App() {
               <h3>Purpose</h3>
               <p>
                 NeuroAgent provides this EyeBreathalyzer research app (HazyEyesIOS OKN pipeline) for
-                non-commercial research and education with autism, dementia, and rare neurological
-                disease organizations. With your permission, anonymized eye-movement recordings and
-                related signals may be stored to improve research algorithms.
+                non-commercial <strong>dementia research</strong> and education. With your permission,
+                anonymized eye-movement recordings and related signals may be stored to improve
+                research algorithms.
               </p>
               <p>
                 <strong>Not a medical device.</strong> Not for diagnosis, treatment, or clinical
-                screening (including autism or dementia screening). {RESEARCH_LANES[researchLane].nonClaim}
+                screening. {RESEARCH_LANES.dementia.nonClaim}
               </p>
             </section>
 
@@ -1020,30 +1014,12 @@ function App() {
         <div className="start-screen">
           <div className="start-card">
             <p className="start-description" style={{ marginBottom: 4, letterSpacing: '0.08em', textTransform: 'uppercase', fontSize: 11 }}>
-              NeuroAgent research product
+              NeuroAgent · dementia research
             </p>
             <h1 className="start-heading">EyeBreathalyzer</h1>
-            <p className="start-description">{RESEARCH_LANES[researchLane].tagline}</p>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, justifyContent: 'center', margin: '12px 0' }}>
-              {(Object.keys(RESEARCH_LANES) as ResearchLaneId[]).map((id) => (
-                <button
-                  key={id}
-                  type="button"
-                  className={`btn ${researchLane === id ? 'primary' : 'secondary'}`}
-                  style={{ fontSize: 12, padding: '8px 12px' }}
-                  onClick={() => {
-                    setResearchLane(id)
-                    const url = new URL(window.location.href)
-                    url.searchParams.set('lane', id)
-                    window.history.replaceState({}, '', url.toString())
-                  }}
-                >
-                  {RESEARCH_LANES[id].label}
-                </button>
-              ))}
-            </div>
+            <p className="start-description">{RESEARCH_LANES.dementia.tagline}</p>
             <p className="start-description" style={{ fontSize: 12 }}>
-              {RESEARCH_LANES[researchLane].nonClaim}
+              {RESEARCH_LANES.dementia.nonClaim}
             </p>
 
             {/* Baseline workflow routing — above auth so start button is visible in landscape */}

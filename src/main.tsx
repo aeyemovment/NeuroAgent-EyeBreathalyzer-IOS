@@ -4,7 +4,6 @@ import { ClerkProvider } from '@clerk/clerk-react'
 import App from './App'
 import './index.css'
 
-// Error boundary to catch and display React render errors (especially #300)
 class ErrorBoundary extends React.Component<
   { children: React.ReactNode },
   { error: Error | null; errorInfo: React.ErrorInfo | null }
@@ -40,10 +39,6 @@ if (!root) {
   throw new Error('Root element not found')
 }
 
-/**
- * Research preview: if Clerk is not configured on Vercel, still mount the app.
- * Auth-gated features degrade gracefully (SignedOut UI / local consent).
- */
 function ResearchShell({ children }: { children: React.ReactNode }) {
   return (
     <ErrorBoundary>
@@ -58,8 +53,7 @@ function ResearchShell({ children }: { children: React.ReactNode }) {
             fontFamily: 'system-ui, sans-serif',
           }}
         >
-          Research preview · Clerk auth not configured on this deploy — local/research mode only.
-          Set <code>VITE_CLERK_PUBLISHABLE_KEY</code> on Vercel for full sign-in.
+          Dementia research preview · Clerk not configured — add VITE_CLERK_PUBLISHABLE_KEY on Vercel for full OKN sign-in.
         </div>
       )}
       {children}
@@ -78,43 +72,18 @@ if (hasClerk) {
     </React.StrictMode>,
   )
 } else {
-  // Stub minimal Clerk-less path: App still uses Clerk hooks — wrap with dummy provider pattern
-  // Use a no-op by rendering AppAuthBypass instead if hooks require provider.
   ReactDOM.createRoot(root).render(
     <React.StrictMode>
       <ResearchShell>
-        <AppBypassClerk />
+        <AppDementiaNoAuth />
       </ResearchShell>
     </React.StrictMode>,
   )
 }
 
-/**
- * When Clerk is missing, App.tsx still imports useUser/useClerk/SignedIn.
- * Provide a thin bypass shell that does not crash and lets research consent + lanes run.
- */
-function AppBypassClerk() {
-  // Dynamic import alternative: re-export simplified experience
-  // Prefer mounting real App only under Clerk. Without Clerk, show research gate + instructions.
-  return <AppResearchNoAuth />
-}
-
-function AppResearchNoAuth() {
-  const [lane, setLane] = React.useState(() => {
-    try {
-      const q = new URLSearchParams(window.location.search).get('lane')
-      if (q === 'dementia' || q === 'rare-neuro' || q === 'autism') return q
-    } catch { /* ignore */ }
-    return 'autism'
-  })
+/** Dementia-only landing when Clerk env is missing (so Vercel still launches). */
+function AppDementiaNoAuth() {
   const [accepted, setAccepted] = React.useState(false)
-
-  const nonClaim =
-    lane === 'dementia'
-      ? 'Not a dementia diagnostic or screening tool.'
-      : lane === 'rare-neuro'
-        ? 'Not a clinical diagnostic tool.'
-        : 'Not an autism diagnostic or screening tool.'
 
   return (
     <div
@@ -128,42 +97,17 @@ function AppResearchNoAuth() {
         margin: '0 auto',
       }}
     >
-      <p style={{ fontSize: 11, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#7dd3fc' }}>
-        NeuroAgent research product
+      <p style={{ fontSize: 11, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#fbbf24' }}>
+        NeuroAgent · dementia research
       </p>
       <h1 style={{ fontSize: 28, margin: '8px 0' }}>EyeBreathalyzer</h1>
       <p style={{ color: '#94a3b8', fontSize: 14, lineHeight: 1.5 }}>
-        HazyEyesIOS OKN / MediaPipe research app — autism, dementia, and rare neuro lanes.
-        Research only · non-commercial · not for diagnosis.
+        Research app for <strong style={{ color: '#e2e8f0' }}>dementia research organizations</strong>.
+        MediaPipe OKN eye-tracking protocol. Research only · non-commercial · not for diagnosis.
       </p>
-
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, margin: '16px 0' }}>
-        {(['autism', 'dementia', 'rare-neuro'] as const).map((id) => (
-          <button
-            key={id}
-            type="button"
-            onClick={() => {
-              setLane(id)
-              const url = new URL(window.location.href)
-              url.searchParams.set('lane', id)
-              window.history.replaceState({}, '', url.toString())
-            }}
-            style={{
-              borderRadius: 999,
-              border: '1px solid',
-              borderColor: lane === id ? '#34d399' : '#334155',
-              background: lane === id ? 'rgba(52,211,153,0.15)' : 'transparent',
-              color: lane === id ? '#6ee7b7' : '#94a3b8',
-              padding: '8px 12px',
-              fontSize: 12,
-              cursor: 'pointer',
-            }}
-          >
-            {id === 'rare-neuro' ? 'Rare neuro research' : id === 'dementia' ? 'Dementia research' : 'Autism research'}
-          </button>
-        ))}
-      </div>
-      <p style={{ fontSize: 12, color: '#fbbf24' }}>{nonClaim}</p>
+      <p style={{ fontSize: 12, color: '#fbbf24' }}>
+        Not a dementia diagnostic or screening tool. Not for clinical care.
+      </p>
 
       {!accepted ? (
         <div
@@ -175,22 +119,18 @@ function AppResearchNoAuth() {
             background: 'rgba(15,23,42,0.8)',
           }}
         >
-          <h2 style={{ fontSize: 16, marginTop: 0 }}>Research consent (Layer A)</h2>
+          <h2 style={{ fontSize: 16, marginTop: 0 }}>Research consent</h2>
           <p style={{ fontSize: 13, color: '#94a3b8', lineHeight: 1.5 }}>
-            This public deploy is in research-preview mode without Clerk. Full camera OKN protocol
-            requires auth env vars on Vercel. You can accept research terms and continue to the
-            protocol when Clerk is configured, or use local <code>npm run dev</code> with keys.
+            I understand this NeuroAgent EyeBreathalyzer preview is for dementia research only.
+            It is not a medical device and must not be used for diagnosis or clinical screening.
           </p>
-          <p style={{ fontSize: 12, color: '#64748b' }}>
-            Contact: info@neuroagentai.org · Modular consent master v0.9 is not auto-enrolled here.
-          </p>
+          <p style={{ fontSize: 12, color: '#64748b' }}>Contact: info@neuroagentai.org</p>
           <label style={{ display: 'flex', gap: 8, fontSize: 13, margin: '12px 0' }}>
             <input type="checkbox" id="c1" />
-            I understand this is research-only and not for diagnosis or clinical screening.
+            I agree — research only, not diagnostic.
           </label>
           <button
             type="button"
-            className="btn"
             onClick={() => {
               const el = document.getElementById('c1') as HTMLInputElement | null
               if (!el?.checked) {
@@ -205,13 +145,13 @@ function AppResearchNoAuth() {
               padding: '12px',
               borderRadius: 10,
               border: 'none',
-              background: '#34d399',
-              color: '#052e16',
+              background: '#fbbf24',
+              color: '#1c1917',
               fontWeight: 700,
               cursor: 'pointer',
             }}
           >
-            Accept research terms
+            Accept & continue
           </button>
         </div>
       ) : (
@@ -220,14 +160,13 @@ function AppResearchNoAuth() {
             marginTop: 20,
             padding: 16,
             borderRadius: 12,
-            border: '1px solid #065f46',
-            background: 'rgba(6,78,59,0.25)',
+            border: '1px solid #854d0e',
+            background: 'rgba(120,53,15,0.25)',
           }}
         >
-          <h2 style={{ fontSize: 16, marginTop: 0 }}>Almost ready</h2>
-          <p style={{ fontSize: 13, color: '#a7f3d0', lineHeight: 1.5 }}>
-            Terms accepted for <strong>{lane}</strong> lane. Full OKN camera protocol needs Clerk +
-            Supabase env on Vercel:
+          <h2 style={{ fontSize: 16, marginTop: 0 }}>Dementia research mode</h2>
+          <p style={{ fontSize: 13, color: '#fde68a', lineHeight: 1.5 }}>
+            Terms accepted. Full camera OKN protocol needs Clerk + Supabase on Vercel:
           </p>
           <ul style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.6 }}>
             <li>
@@ -238,11 +177,10 @@ function AppResearchNoAuth() {
             </li>
           </ul>
           <p style={{ fontSize: 13, color: '#e2e8f0' }}>
-            Add those in the Vercel project settings → Environment Variables → Redeploy, and this
-            page will load the full EyeBreathalyzer test UI automatically.
+            After those are set and redeployed, the full EyeBreathalyzer test UI loads automatically.
           </p>
           <p style={{ fontSize: 12, color: '#64748b' }}>
-            GitHub: github.com/aeyemovment/NeuroAgent-EyeBreathalyzer-IOS
+            App: neuroagent-eyebreathalyzer.vercel.app · GitHub: aeyemovment/NeuroAgent-EyeBreathalyzer-IOS
           </p>
         </div>
       )}
