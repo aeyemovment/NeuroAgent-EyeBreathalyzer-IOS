@@ -1,0 +1,162 @@
+# Build output
+dist/
+dist-ssr/
+node_modules/
+.vercel/
+
+# Capacitor (mobile builds)
+ios/
+android/
+.capacitor/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Secrets / environment
+.env
+.env.local
+.env*.local
+.env.production
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Large/binary files
+
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.webm
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.h5
+*.parquet
+
+# ConVNG DLC model weights (see convng_assets/README.md)
+analysis_csvs/sensor_benchmark/convng_assets/ConVNG-RCNN/dlc-models/
+analysis_csvs/sensor_benchmark/convng_assets/ConVNG-RCNN/training-datasets/
+
+# Experiment results (regenerable from pipeline runs)
+analysis_csvs/sensor_benchmark/results/
+
+# Benchmark data artifacts (videos covered by *.mp4 glob above)
+analysis_csvs/sensor_benchmark/benchmark_data/*/sidecar.json
+analysis_csvs/sensor_benchmark/benchmark_data/*/metadata.json
+analysis_csvs/sensor_benchmark/benchmark_data/*/convng_temp/
+analysis_csvs/sensor_benchmark/benchmark_data/*/convng_v2_prep.json
+analysis_csvs/sensor_benchmark/benchmark_data/*/tracker_signals_cache.json
+analysis_csvs/sensor_benchmark/benchmark_data/recording_metadata.json
+
+# Experiment session caches (re-downloadable from Supabase)
+analysis_csvs/validation_cache/
+analysis_csvs/post_fix/
+analysis_csvs/*/data/sessions/
+analysis_csvs/*/results/_csv_cache/
+
+# Model artifacts: force-track production model outputs (.cbm, .npy, .json)
+# These are NOT regenerable without re-running expensive pipelines
+!analysis_csvs/*/data/best_model/
+!analysis_csvs/*/data/best_model/**
+!analysis_csvs/*/data/artifacts/
+!analysis_csvs/*/data/artifacts/**
+!analysis_csvs/*/data/per_subject_summary.json
+!analysis_csvs/*/data/generalization_results.csv
+
+# Python venv (rebuild from requirements.txt)
+analysis_csvs/.venv/
+.venv/
+
+# Legacy MLflow local runs (use ~/mlflow-stores/ instead)
+analysis_csvs/mlruns/
+mlruns/
+
+# Local scratch / transient
+scratch/
+runs/
+.planning/
+analysis_csvs/tmp/
+nul
+analysis_csvs/sensor_benchmark/_newest_session_dir.txt
+download-log.txt
+
+# Claude Code workflow tracking
+tasks/
+catboost_info/
+.venv/
+
+# Synthetic experiment data (regenerate via run scripts)
+analysis_csvs/synthetic_experiment/data/
+
+# Video pipeline artifacts (re-downloadable from Supabase, regenerable)
+analysis_csvs/video_pipeline/raw_data/
+analysis_csvs/video_pipeline/crops/
+analysis_csvs/video_pipeline/qa_grids/
+analysis_csvs/video_pipeline/manifest_*.json
+analysis_csvs/video_pipeline/extraction_summary.json
+analysis_csvs/video_pipeline/feasibility_report.html
+analysis_csvs/video_pipeline/debug_*.png
+analysis_csvs/video_pipeline/sam2_annotations/
+analysis_csvs/video_pipeline/iris_models/
+analysis_csvs/video_pipeline/iris_detector_results/
+analysis_csvs/video_pipeline/head_relative_results/
+analysis_csvs/video_pipeline/optical_flow_results/
+analysis_csvs/video_pipeline/head_compensation_results.csv
+analysis_csvs/video_pipeline/temporal_features*.csv
+analysis_csvs/video_pipeline/*.mp4
+analysis_csvs/video_pipeline/comparison_frame_*.png
+analysis_csvs/video_pipeline/overlay_frame_*.png
+analysis_csvs/video_pipeline/fullframe_*.png
+analysis_csvs/video_pipeline/subject_check_*.png
+analysis_csvs/video_pipeline/three_tracker_*.png
+analysis_csvs/video_pipeline/okn_*.png
+analysis_csvs/video_pipeline/sam2_*.png
+analysis_csvs/video_pipeline/convng_*.png
+analysis_csvs/video_pipeline/tracker_comparison*.mp4
+
+# ConVNG nested duplicate structure (artifact of model setup)
+analysis_csvs/sensor_benchmark/convng_assets/analysis_csvs/
+
+# Legacy data exports
+exports/okn_result_*.csv
+synthetic_drunk*
+synthetic_sober*
+
+# Testing
+coverage/
+.playwright-mcp/
+playwright-report/
+test-results/
+
+# OpenNystagmus pipeline data (large session files)
+analysis_csvs/video_pipeline/opennystagmus/data/
+analysis_csvs/video_pipeline/opennystagmus/results/
+
+# 3DDFA_V2 model weights and configs (13MB ONNX + pkl files)
+analysis_csvs/video_pipeline/opennystagmus/tddfa_wrapper/configs/*.onnx
+analysis_csvs/video_pipeline/opennystagmus/tddfa_wrapper/configs/*.pkl
+
+.vercel
+
+# PNG whitelist for production assets
+!public/icon.png
+!public/hazyeyes-logo-black-transparent.png

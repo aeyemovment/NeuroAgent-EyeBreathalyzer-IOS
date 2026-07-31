@@ -1,0 +1,21 @@
+NeuroAgent is opening a research preview of EyeBreathalyzer — released as RareNeuroScreen — for autism, dementia, and rare neurological disease research organizations.
+
+What’s different about this release:
+• Double launch, one interface — autism and dementia research lanes share the same EyeBreathalyzer app
+• Lane-specific language only — the synthetic gaze-dynamics simulator does not change by lane
+• Built for non-commercial research and education
+
+What this is not:
+This preview is not a medical device, not for clinical care, and not an autism or dementia diagnostic or screening tool. Outputs are synthetic / illustrative research signals.
+
+Who it’s for:
+Research labs, academic groups, and nonprofit research consortia evaluating remote neurocognitive research tooling.
+
+Preview:
+https://[DEPLOY-HazyEyesIOS-main]
+• Autism lane: https://[DEPLOY-HazyEyesIOS-main]/?lane=autism
+• Dementia lane: https://[DEPLOY-HazyEyesIOS-main]/?lane=dementia
+
+Research inquiries: info@neuroagentai.org
+
+#NeuroAgent #ResearchOnly #AutismResearch #DementiaResearch #NeuroTech #OpenScience

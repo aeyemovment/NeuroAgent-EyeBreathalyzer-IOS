@@ -1,0 +1,30 @@
+name: CI
+
+on: [push, pull_request]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm ci
+      - run: npm run test
+      - run: npm run build
+      # Vite copies public/ → dist/ automatically; verify critical files present
+      - name: Verify critical assets in dist/
+        run: |
+          test -f dist/app.js || (echo "ERROR: app.js missing from dist/" && exit 1)
+          test -f dist/model_artifact.json || (echo "ERROR: model_artifact.json missing from dist/" && exit 1)
+
+  validate-model:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate model artifact
+        run: python validate_model_artifact.py public/model_artifact.json

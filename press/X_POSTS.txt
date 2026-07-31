@@ -1,0 +1,38 @@
+=== X PRIMARY (autism launch day) ===
+NeuroAgent is opening a research preview of EyeBreathalyzer (RareNeuroScreen) for autism + dementia research orgs.
+
+Same app interface. Lane-specific language only.
+Not a diagnostic. Research use only.
+
+Autism lane · public launch today
+→ https://[DEPLOY-HazyEyesIOS-main]/?lane=autism
+
+info@neuroagentai.org
+
+=== X DEMENTIA CO-LANE ===
+Double launch, one interface.
+
+EyeBreathalyzer research preview from NeuroAgent:
+• Autism research lane
+• Dementia research lane
+• Shared simulator · copy changes by lane
+
+Research only. Not clinical screening.
+
+https://[DEPLOY-HazyEyesIOS-main]/?lane=dementia
+
+=== X ULTRA-SHORT ===
+Research preview live (NeuroAgent):
+EyeBreathalyzer → RareNeuroScreen
+Autism + dementia research lanes · same UI
+Not a medical device.
+
+https://[DEPLOY-HazyEyesIOS-main]
+
+=== X PRE-MONDAY TEASER ===
+Monday: NeuroAgent opens the EyeBreathalyzer research preview (RareNeuroScreen) for autism research orgs — same app as the dementia research lane.
+
+Research only. Not a diagnostic.
+
+Preview: https://[DEPLOY-HazyEyesIOS-main]
+info@neuroagentai.org
