@@ -33,9 +33,21 @@ research_prototype=true · non_commercial=true · not_diagnostic=true
 |---|---|
 | **Name** | OpenDementia |
 | **What** | Open research OKN / MediaPipe eye-tracking app for dementia research orgs |
+| **Research claims** | (1) May surface **OKN / eye-movement impairment-pattern signals** associated with **some dementia subtypes**; (2) Help **prioritize referral for targeted genetic testing** (e.g. C9ORF72 ALS-FTD gene-specific trials) |
 | **Base** | HazyEyesIOS (camera + Face Mesh + OKN core) |
-| **Not** | Medical device · dementia diagnostic · clinical screening · commercial product without written license |
+| **Not** | Medical device · clinical diagnosis of impairment or any dementia subtype · genetic test · clinical screening · commercial product without written license |
 | **Stack** | Vite · React · Capacitor · MediaPipe · Supabase · Clerk (optional on public preview) |
+
+### Demo video (C9ORF72 pathway)
+
+| | |
+|---|---|
+| **In app** | https://opendementia.vercel.app/demo/okn_demo_c9orf72.mp4 |
+| **Repo path** | `public/demo/okn_demo_c9orf72.mp4` |
+| **Source** | eyebreathalyzer OKN recording (`eyebreathalyzer  3.mov`) |
+| **UI** | After terms → C9 protocol panel → Run demo → **priority band for targeted genetic testing** |
+| **Note** | Demo metrics are synthetic / illustrative — not clinical scores |
+| **Review packet** | `~/Desktop/OpenDementia_Review_Packet_2026-07-31/` (+ `.zip`) |
 
 ---
 
