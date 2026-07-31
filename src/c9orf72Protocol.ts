@@ -35,6 +35,7 @@ export const C9_PROTOCOL = {
     'Does not detect or confirm C9ORF72 genotype — laboratory genetic testing is required.',
     'Does not replace clinical evaluation, EMG, imaging, or genetic counseling.',
     '“Screen for genetic testing” means research prioritization for referral, not a stand-alone diagnosis.',
+    'Makes no accuracy, sensitivity, specificity, AUC, or “lab-grade” performance claims.',
     'Trial eligibility is determined only by the trial protocol and genetic confirmation.',
     'Demo analysis on sample video is synthetic / illustrative for research workflow design.',
   ],

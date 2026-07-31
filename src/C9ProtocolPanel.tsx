@@ -124,8 +124,8 @@ export function C9ProtocolPanel() {
         Your browser does not support video.
       </video>
       <p style={{ fontSize: 11, color: '#a78bfa', marginTop: 6 }}>
-        Demo: FTD-focused research OKN walkthrough (alcohol / brainstem marketing copy scrubbed).
-        Illustrative only — not clinical footage.
+        Demo: FTD-focused research OKN walkthrough (alcohol, brainstem, and accuracy claims scrubbed).
+        Illustrative only — not clinical footage · no performance metrics.
       </p>
 
       <button

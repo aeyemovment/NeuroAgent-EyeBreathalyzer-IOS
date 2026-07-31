@@ -51,14 +51,15 @@ In **research use only**, OpenDementia:
 - Alcohol / EtOH / breathalyzer claims  
 - Brainstem marketing line  
 - EyeBreathalyzer + HazyEyes alcohol branding  
-- “Not Impaired” + 98% alcohol-style accuracy end card  
+- “Not Impaired” result card  
+- **All accuracy claims** (98%, “lab-grade”, sensitivity/specificity, classification accuracy)  
 
 ### Replaced with (FTD research framing)
 - OpenDementia · NeuroAgent intro  
 - OKN patterns in **some FTD presentations** (research only)  
 - Priority for **targeted genetic testing** (e.g. C9ORF72 ALS-FTD)  
-- **FTD research priority band** (not a diagnosis / genotype)  
-- End: research only · not a diagnosis · not a genetic test · info@neuroagentai.org  
+- **FTD research pathway** → genetic counseling / testing referral (no % or performance metrics)  
+- Explicit: **no accuracy claims** · not a diagnosis · not a genetic test · info@neuroagentai.org  
 
 **Live in app:**  
 https://opendementia.vercel.app/demo/okn_demo_c9orf72.mp4  
