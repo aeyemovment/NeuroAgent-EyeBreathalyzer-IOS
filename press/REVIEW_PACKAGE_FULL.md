@@ -1,7 +1,7 @@
 # REVIEW PACKAGE — NeuroAgent EyeBreathalyzer (HazyEyesIOS)
 
 **Status:** DRAFT — do not post publicly until reviews complete  
-**Correct app (not RareNeuroScreen):** https://neuroagent-eyebreathalyzer.vercel.app  
+**Correct app (not RareNeuroScreen):** https://opendementia.vercel.app  
 **GitHub:** https://github.com/aeyemovment/NeuroAgent-EyeBreathalyzer-IOS  
 **Local:** `~/HazyEyesIOS-main`  
 **Primary contact:** info@neuroagentai.org  
@@ -30,13 +30,13 @@
 
 | Lane | URL |
 |------|-----|
-| Home | https://neuroagent-eyebreathalyzer.vercel.app |
-| Autism | https://neuroagent-eyebreathalyzer.vercel.app/?lane=autism |
-| Dementia | https://neuroagent-eyebreathalyzer.vercel.app/?lane=dementia |
-| Rare neuro | https://neuroagent-eyebreathalyzer.vercel.app/?lane=rare-neuro |
+| Home | https://opendementia.vercel.app |
+| Autism | https://opendementia.vercel.app/?lane=autism |
+| Dementia | https://opendementia.vercel.app/?lane=dementia |
+| Rare neuro | https://opendementia.vercel.app/?lane=rare-neuro |
 | GitHub | https://github.com/aeyemovment/NeuroAgent-EyeBreathalyzer-IOS |
 
-**Do not use:** https://neuroagent-eyebreathalyzer.vercel.app (wrong app — Next.js fork)
+**Do not use:** https://opendementia.vercel.app (wrong app — Next.js fork)
 
 ---
 
@@ -59,13 +59,13 @@
 
 ### X — primary
 ```
-NeuroAgent EyeBreathalyzer research app is open for autism + dementia research orgs.
+NeuroAgent OpenDementia is open for autism + dementia research orgs.
 
 MediaPipe OKN · same interface · lane-specific language
 Research only. Not a diagnostic.
 
 Autism lane · public launch Mon 2026-08-03
-→ https://neuroagent-eyebreathalyzer.vercel.app/?lane=autism
+→ https://opendementia.vercel.app/?lane=autism
 
 info@neuroagentai.org
 ```
@@ -80,7 +80,7 @@ NeuroAgent EyeBreathalyzer:
 • Shared MediaPipe OKN pipeline
 
 Research only. Not clinical screening.
-https://neuroagent-eyebreathalyzer.vercel.app/?lane=dementia
+https://opendementia.vercel.app/?lane=dementia
 ```
 
 ### LinkedIn
@@ -96,9 +96,9 @@ What this is not:
 Not a medical device. Not for clinical care. Not an autism or dementia diagnostic or screening tool.
 
 Preview:
-https://neuroagent-eyebreathalyzer.vercel.app
-• Autism: https://neuroagent-eyebreathalyzer.vercel.app/?lane=autism
-• Dementia: https://neuroagent-eyebreathalyzer.vercel.app/?lane=dementia
+https://opendementia.vercel.app
+• Autism: https://opendementia.vercel.app/?lane=autism
+• Dementia: https://opendementia.vercel.app/?lane=dementia
 
 GitHub: https://github.com/aeyemovment/NeuroAgent-EyeBreathalyzer-IOS
 Research inquiries: info@neuroagentai.org

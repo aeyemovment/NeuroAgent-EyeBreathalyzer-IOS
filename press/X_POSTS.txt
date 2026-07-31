@@ -5,7 +5,7 @@ Same app interface. Lane-specific language only.
 Not a diagnostic. Research use only.
 
 Autism lane · public launch today
-→ https://neuroagent-eyebreathalyzer.vercel.app/?lane=autism
+→ https://opendementia.vercel.app/?lane=autism
 
 info@neuroagentai.org
 
@@ -19,7 +19,7 @@ EyeBreathalyzer research preview from NeuroAgent:
 
 Research only. Not clinical screening.
 
-https://neuroagent-eyebreathalyzer.vercel.app/?lane=dementia
+https://opendementia.vercel.app/?lane=dementia
 
 === X ULTRA-SHORT ===
 Research preview live (NeuroAgent):
@@ -27,12 +27,12 @@ EyeBreathalyzer → RareNeuroScreen
 Autism + dementia research lanes · same UI
 Not a medical device.
 
-https://neuroagent-eyebreathalyzer.vercel.app
+https://opendementia.vercel.app
 
 === X PRE-MONDAY TEASER ===
 Monday: NeuroAgent opens the EyeBreathalyzer research preview (RareNeuroScreen) for autism research orgs — same app as the dementia research lane.
 
 Research only. Not a diagnostic.
 
-Preview: https://neuroagent-eyebreathalyzer.vercel.app
+Preview: https://opendementia.vercel.app
 info@neuroagentai.org

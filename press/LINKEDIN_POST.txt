@@ -12,9 +12,9 @@ Who it’s for:
 Research labs, academic groups, and nonprofit research consortia evaluating remote neurocognitive research tooling.
 
 Preview:
-https://neuroagent-eyebreathalyzer.vercel.app
-• Autism lane: https://neuroagent-eyebreathalyzer.vercel.app/?lane=autism
-• Dementia lane: https://neuroagent-eyebreathalyzer.vercel.app/?lane=dementia
+https://opendementia.vercel.app
+• Autism lane: https://opendementia.vercel.app/?lane=autism
+• Dementia lane: https://opendementia.vercel.app/?lane=dementia
 
 Research inquiries: info@neuroagentai.org
 
