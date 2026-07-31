@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom/client'
 import { ClerkProvider } from '@clerk/clerk-react'
 import App from './App'
 import {
+  APP_URL,
   COLLABORATE_CTA,
-  COLLABORATE_URL,
+  COLLABORATE_URL_WITH_APP,
   CONTACT_PRIMARY,
   COPYRIGHT_LINE,
   LICENSE_NAME,
@@ -62,7 +63,7 @@ function ResearchShell({ children }: { children: React.ReactNode }) {
             fontFamily: 'system-ui, sans-serif',
           }}
         >
-          OpenDementia research preview · Add VITE_CLERK_PUBLISHABLE_KEY on Vercel for full OKN sign-in.
+          OpenDementia · You are on the app ({APP_URL}). Full OKN sign-in needs Clerk env on Vercel.
         </div>
       )}
       {children}
@@ -90,9 +91,43 @@ if (hasClerk) {
   )
 }
 
+const btnPrimary: React.CSSProperties = {
+  display: 'block',
+  width: '100%',
+  boxSizing: 'border-box',
+  marginTop: 10,
+  padding: '14px 16px',
+  borderRadius: 12,
+  border: 'none',
+  fontWeight: 700,
+  fontSize: 15,
+  textAlign: 'center',
+  textDecoration: 'none',
+  cursor: 'pointer',
+}
+
 /** OpenDementia landing when Clerk env is missing (so Vercel still launches). */
 function OpenDementiaLanding() {
-  const [accepted, setAccepted] = React.useState(false)
+  const [accepted, setAccepted] = React.useState(() => {
+    try {
+      return localStorage.getItem('opendementia_terms_v1') === '1'
+    } catch {
+      return false
+    }
+  })
+
+  function acceptTerms() {
+    const el = document.getElementById('c1') as HTMLInputElement | null
+    const el2 = document.getElementById('c2') as HTMLInputElement | null
+    if (!el?.checked || !el2?.checked) {
+      alert('Please accept both research and non-commercialization checkboxes.')
+      return
+    }
+    try {
+      localStorage.setItem('opendementia_terms_v1', '1')
+    } catch { /* ignore */ }
+    setAccepted(true)
+  }
 
   return (
     <div
@@ -111,33 +146,17 @@ function OpenDementiaLanding() {
       </p>
       <h1 style={{ fontSize: 32, margin: '8px 0', fontWeight: 700 }}>OpenDementia</h1>
       <p style={{ color: '#94a3b8', fontSize: 15, lineHeight: 1.55 }}>
-        Open research eye-tracking (OKN) for <strong style={{ color: '#e2e8f0' }}>dementia research</strong> organizations.
-        Research only · non-commercial · not for diagnosis.
+        You are on the <strong style={{ color: '#e2e8f0' }}>OpenDementia app</strong> — open research
+        eye-tracking (OKN) for dementia research organizations.
+      </p>
+      <p style={{ fontSize: 13, color: '#7dd3fc' }}>
+        App link:{' '}
+        <a href={APP_URL} style={{ color: '#7dd3fc' }}>
+          {APP_URL}
+        </a>
       </p>
       <p style={{ fontSize: 12, color: '#fbbf24' }}>
         Not a dementia diagnostic or screening tool. Not for clinical care.
-      </p>
-      <a
-        href={COLLABORATE_URL}
-        target="_blank"
-        rel="noopener noreferrer"
-        style={{
-          display: 'block',
-          marginTop: 16,
-          padding: '14px 16px',
-          borderRadius: 12,
-          background: 'linear-gradient(180deg,#62c3ff,#2ea6ff)',
-          color: '#001227',
-          fontWeight: 700,
-          fontSize: 15,
-          textAlign: 'center',
-          textDecoration: 'none',
-        }}
-      >
-        Collaborate with NeuroAgent → fill out the form
-      </a>
-      <p style={{ fontSize: 11, color: '#64748b', marginTop: 8, textAlign: 'center' }}>
-        {COLLABORATE_URL}
       </p>
       <p
         style={{
@@ -164,51 +183,38 @@ function OpenDementiaLanding() {
             background: 'rgba(15,23,42,0.8)',
           }}
         >
-          <h2 style={{ fontSize: 16, marginTop: 0 }}>Research consent + non-commercial license</h2>
+          <h2 style={{ fontSize: 16, marginTop: 0 }}>1) Enter the OpenDementia app</h2>
           <p style={{ fontSize: 13, color: '#94a3b8', lineHeight: 1.5 }}>
-            I understand OpenDementia is a NeuroAgent research preview for dementia research only.
-            It is not a medical device and must not be used for diagnosis or clinical screening.
+            Accept terms to continue in this app. Research only · not diagnostic.
           </p>
-          <p style={{ fontSize: 12, color: '#cbd5e1', lineHeight: 1.45 }}>
-            <strong>Non-commercialization:</strong> I will not sell, resell, productize, sublicense
-            for commercial use, or embed OpenDementia in a commercial product without a separate
-            written commercial license from NeuroAgent AI, Inc..
-            License: {LICENSE_NAME}.
-          </p>
-          <p style={{ fontSize: 12, color: '#64748b' }}>Contact: {CONTACT_PRIMARY}</p>
           <label style={{ display: 'flex', gap: 8, fontSize: 13, margin: '12px 0' }}>
             <input type="checkbox" id="c1" />
             I agree — research only, not diagnostic.
           </label>
           <label style={{ display: 'flex', gap: 8, fontSize: 13, margin: '12px 0' }}>
             <input type="checkbox" id="c2" />
-            I accept the non-commercialization copyright terms (no commercial use without written license).
+            I accept the non-commercialization copyright terms.
           </label>
-          <button
-            type="button"
-            onClick={() => {
-              const el = document.getElementById('c1') as HTMLInputElement | null
-              const el2 = document.getElementById('c2') as HTMLInputElement | null
-              if (!el?.checked || !el2?.checked) {
-                alert('Please accept both research and non-commercialization checkboxes.')
-                return
-              }
-              setAccepted(true)
-            }}
-            style={{
-              width: '100%',
-              marginTop: 8,
-              padding: '12px',
-              borderRadius: 10,
-              border: 'none',
-              background: '#fbbf24',
-              color: '#1c1917',
-              fontWeight: 700,
-              cursor: 'pointer',
-            }}
-          >
-            Accept & continue
+          <button type="button" onClick={acceptTerms} style={{ ...btnPrimary, background: '#fbbf24', color: '#1c1917' }}>
+            Continue in OpenDementia app →
           </button>
+
+          <h2 style={{ fontSize: 16, marginTop: 28 }}>2) Also register as a collaborator</h2>
+          <p style={{ fontSize: 13, color: '#94a3b8', lineHeight: 1.5 }}>
+            Please fill out the NeuroAgent form (opens in a new tab). Then come back to the app
+            link above.
+          </p>
+          <a
+            href={COLLABORATE_URL_WITH_APP}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ ...btnPrimary, background: 'linear-gradient(180deg,#62c3ff,#2ea6ff)', color: '#001227' }}
+          >
+            Open collaborate form →
+          </a>
+          <p style={{ fontSize: 11, color: '#64748b', marginTop: 8 }}>
+            After the form, return to the app: {APP_URL}
+          </p>
         </div>
       ) : (
         <div
@@ -216,13 +222,23 @@ function OpenDementiaLanding() {
             marginTop: 20,
             padding: 16,
             borderRadius: 12,
-            border: '1px solid #854d0e',
-            background: 'rgba(120,53,15,0.25)',
+            border: '1px solid #065f46',
+            background: 'rgba(6,78,59,0.3)',
           }}
         >
-          <h2 style={{ fontSize: 16, marginTop: 0 }}>OpenDementia</h2>
-          <p style={{ fontSize: 13, color: '#fde68a', lineHeight: 1.5 }}>
-            Terms accepted (research + non-commercial). Full camera OKN protocol needs Clerk + Supabase on Vercel:
+          <h2 style={{ fontSize: 16, marginTop: 0 }}>You are in OpenDementia</h2>
+          <p style={{ fontSize: 13, color: '#a7f3d0', lineHeight: 1.5 }}>
+            Terms accepted. This page <strong>is</strong> the app. Bookmark it:
+          </p>
+          <a
+            href={APP_URL}
+            style={{ ...btnPrimary, background: '#34d399', color: '#052e16' }}
+          >
+            OpenDementia app home → {APP_URL.replace('https://', '')}
+          </a>
+
+          <p style={{ fontSize: 13, color: '#e2e8f0', marginTop: 18, lineHeight: 1.5 }}>
+            Full camera OKN protocol needs Clerk + Supabase on Vercel (optional for research landing):
           </p>
           <ul style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.6 }}>
             <li>
@@ -232,31 +248,24 @@ function OpenDementiaLanding() {
               <code>VITE_SUPABASE_URL</code> / <code>VITE_SUPABASE_ANON_KEY</code>
             </li>
           </ul>
-          <p style={{ fontSize: 13, color: '#e2e8f0' }}>
-            After env is set and redeployed, the full OKN test UI loads automatically.
+
+          <h3 style={{ fontSize: 14, marginTop: 20 }}>Collaborator registration</h3>
+          <p style={{ fontSize: 12, color: '#94a3b8' }}>
+            Have your lab fill this out (new tab). It does not replace the app link.
           </p>
           <a
-            href={COLLABORATE_URL}
+            href={COLLABORATE_URL_WITH_APP}
             target="_blank"
             rel="noopener noreferrer"
-            style={{
-              display: 'block',
-              marginTop: 14,
-              padding: '12px 14px',
-              borderRadius: 10,
-              background: '#34d399',
-              color: '#052e16',
-              fontWeight: 700,
-              fontSize: 14,
-              textAlign: 'center',
-              textDecoration: 'none',
-            }}
+            style={{ ...btnPrimary, background: 'linear-gradient(180deg,#62c3ff,#2ea6ff)', color: '#001227' }}
           >
-            Next: fill the collaborate form →
+            Fill collaborate form →
           </a>
+          <p style={{ fontSize: 11, color: '#64748b', marginTop: 10 }}>
+            Return to app anytime: <a href={APP_URL} style={{ color: '#7dd3fc' }}>{APP_URL}</a>
+          </p>
           <p style={{ fontSize: 11, color: '#64748b', marginTop: 12 }}>{NON_COMMERCIAL_SHORT}</p>
           <p style={{ fontSize: 12, color: '#64748b' }}>{CONTACT_PRIMARY}</p>
-          <p style={{ fontSize: 11, color: '#94a3b8' }}>{COLLABORATE_CTA}</p>
         </div>
       )}
       <footer style={{ marginTop: 28, fontSize: 10, color: '#475569', lineHeight: 1.4 }}>
@@ -264,7 +273,9 @@ function OpenDementiaLanding() {
         <br />
         {LICENSE_NAME}
         <br />
-        Collaborate: {COLLABORATE_URL}
+        App: {APP_URL}
+        <br />
+        {COLLABORATE_CTA}
       </footer>
     </div>
   )

@@ -8,8 +8,9 @@ import { runBaselineGate } from './okn-core/baselineGate'
 import type { BaselineMLSession } from './okn-core/baselineGate'
 import { DEFAULT_LANE, RESEARCH_LANES, type ResearchLaneId } from './researchLanes'
 import {
+  APP_URL,
   COLLABORATE_CTA,
-  COLLABORATE_URL,
+  COLLABORATE_URL_WITH_APP,
   CONTACT_PRIMARY,
   COPYRIGHT_LINE,
   LICENSE_NAME,
@@ -903,12 +904,19 @@ function App() {
             <section>
               <h3>Collaborate</h3>
               <p>
-                Research partners and orgs: please complete the NeuroAgent collaboration form so we
-                can follow up:
+                Research partners and orgs: (1) use this OpenDementia app, and (2) complete the
+                NeuroAgent collaboration form so we can follow up.
               </p>
               <p>
-                <a href={COLLABORATE_URL} target="_blank" rel="noopener noreferrer">
-                  {COLLABORATE_URL}
+                App:{' '}
+                <a href={APP_URL} target="_blank" rel="noopener noreferrer">
+                  {APP_URL}
+                </a>
+              </p>
+              <p>
+                Form:{' '}
+                <a href={COLLABORATE_URL_WITH_APP} target="_blank" rel="noopener noreferrer">
+                  {COLLABORATE_URL_WITH_APP.split('?')[0]}
                 </a>
               </p>
             </section>
@@ -1058,19 +1066,25 @@ function App() {
             <p className="start-description" style={{ fontSize: 11, opacity: 0.85, marginTop: 8 }}>
               {NON_COMMERCIAL_SHORT}
             </p>
+            <p className="start-description" style={{ fontSize: 12, marginTop: 8 }}>
+              You are in the OpenDementia app:{' '}
+              <a href={APP_URL} style={{ color: '#7dd3fc' }}>
+                {APP_URL}
+              </a>
+            </p>
             <p className="start-description" style={{ marginTop: 12 }}>
               <a
                 className="btn primary start-button"
-                href={COLLABORATE_URL}
+                href={COLLABORATE_URL_WITH_APP}
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{ display: 'inline-block', textDecoration: 'none', textAlign: 'center' }}
               >
-                Collaborate — fill out the form
+                Also fill collaborate form (new tab)
               </a>
             </p>
             <p className="start-description" style={{ fontSize: 11, opacity: 0.75 }}>
-              {COLLABORATE_CTA}
+              {COLLABORATE_CTA} · Return to app: {APP_URL}
             </p>
 
             {/* Baseline workflow routing — above auth so start button is visible in landscape */}

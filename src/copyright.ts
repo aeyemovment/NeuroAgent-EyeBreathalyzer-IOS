@@ -6,6 +6,8 @@ export const COPYRIGHT_HOLDER = 'NeuroAgent AI, Inc. / NeuroAgent'
 
 export const PRODUCT_NAME = 'OpenDementia'
 
+export const APP_URL = 'https://opendementia.vercel.app'
+
 export const COPYRIGHT_LINE =
   `© ${COPYRIGHT_YEAR} ${COPYRIGHT_HOLDER}. ${PRODUCT_NAME}. All rights reserved under the Research Non-Commercial License.`
 
@@ -22,8 +24,12 @@ export const LICENSE_NAME = 'Research Non-Commercial License (see LICENSE)'
 
 export const CONTACT_PRIMARY = 'info@neuroagentai.org'
 
-/** NeuroAgent collaboration / interest form — have partners fill this out. */
+/** NeuroAgent collaboration form — partners should fill this out. */
 export const COLLABORATE_URL = 'https://www.theneuroagentai.com/collaborate'
 
+/** Collaborate form with return context to OpenDementia app. */
+export const COLLABORATE_URL_WITH_APP =
+  'https://www.theneuroagentai.com/collaborate?source=OpenDementia&app=https%3A%2F%2Fopendementia.vercel.app'
+
 export const COLLABORATE_CTA =
-  'Research orgs & collaborators: please fill out the NeuroAgent form → https://www.theneuroagentai.com/collaborate'
+  'Also fill out the NeuroAgent collaborate form: https://www.theneuroagentai.com/collaborate'
