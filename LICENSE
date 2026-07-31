@@ -1,0 +1,116 @@
+OpenDementia Research Non-Commercial License
+Copyright (c) 2026 NeuroAgent AI, Inc. / NeuroAgent.
+All rights reserved except as expressly granted below.
+
+Product: OpenDementia (HazyEyesIOS OKN / MediaPipe research app)
+Publisher: NeuroAgent
+Contact: info@neuroagentai.org
+
+================================================================================
+SUMMARY (non-binding plain language)
+================================================================================
+You may use, study, and modify OpenDementia for non-commercial research and
+education for dementia research organizations and academic collaborators.
+You may NOT sell it, embed it in a commercial product, use it as a clinical
+device, or claim diagnostic performance (including dementia screening claims).
+Proprietary datasets and non-released training / model code are NOT licensed
+here and are excluded from this release.
+
+================================================================================
+1. GRANT
+================================================================================
+Subject to the terms of this License, the copyright holders grant you a
+worldwide, royalty-free, non-exclusive, non-transferable license to use, copy,
+modify, and distribute the Software solely for:
+
+  (a) non-commercial academic or nonprofit research;
+  (b) non-commercial education and training;
+  (c) internal evaluation by dementia research centers, hospitals' research
+      arms, and similar non-commercial research consortia.
+
+"Software" means the OpenDementia application source and documentation in this
+repository, excluding any datasets, model weights, training code, or artifacts
+marked proprietary / not released.
+
+================================================================================
+2. NON-COMMERCIALIZATION (MANDATORY)
+================================================================================
+You may NOT, without a separate written commercial license from the copyright
+holders:
+
+  (a) sell, license for a fee, or otherwise commercialize the Software or
+      derivatives;
+  (b) use the Software as part of a paid product, SaaS, clinical platform,
+      medical device, or commercial screening service;
+  (c) use the Software for advertising, marketing claims of diagnostic accuracy,
+      or paid pilot sales without express written permission;
+  (d) sublicense the Software on terms that allow commercial use by third parties.
+
+Non-commercial research collaborations that do not generate product revenue are
+permitted. If in doubt, contact info@neuroagentai.org.
+
+================================================================================
+3. RESEARCH-ONLY / NO CLINICAL USE
+================================================================================
+THE SOFTWARE IS A RESEARCH PROTOTYPE ONLY.
+
+  - Not a medical device.
+  - Not FDA-cleared or CE-marked.
+  - Not for diagnosis, treatment, clinical screening, patient triage, or care.
+  - Outputs are exploratory / research signals and must not be used as clinical
+    evidence of dementia or any other condition.
+  - Human-subjects research requires your own IRB / ethics approval; this public
+    preview is not itself an approved human-subjects protocol.
+
+================================================================================
+4. ATTRIBUTION
+================================================================================
+Redistributions of source or substantial portions must retain this copyright
+notice, the license text, and the research / non-commercialization disclaimers
+shown in the application user interface.
+
+================================================================================
+5. NO DATASETS; NO PROPRIETARY TRAINING CODE
+================================================================================
+This License does not grant rights to any clinical datasets, synthetic
+training corpora, model checkpoints, or non-public backend training code.
+Those materials remain proprietary and confidential unless separately licensed.
+
+================================================================================
+6. TRADEMARK
+================================================================================
+"OpenDementia", "NeuroAgent", "EyeBreathalyzer", and "HazyEyes" names and marks
+remain property of their owners and may not be used to imply endorsement without
+permission.
+
+================================================================================
+7. DISCLAIMER OF WARRANTY
+================================================================================
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT. YOU ASSUME ALL RISK.
+
+================================================================================
+8. LIMITATION OF LIABILITY
+================================================================================
+IN NO EVENT SHALL THE COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES, OR
+OTHER LIABILITY ARISING FROM USE OF THE SOFTWARE, INCLUDING BUT NOT LIMITED TO
+INDIRECT, INCIDENTAL, SPECIAL, OR CONSEQUENTIAL DAMAGES, EVEN IF ADVISED OF
+THE POSSIBILITY.
+
+================================================================================
+9. TERMINATION
+================================================================================
+Any breach of the non-commercial, research-only, or attribution terms
+automatically terminates this License. Upon termination you must cease use and
+destroy copies, except as required by applicable law for archival purposes.
+
+================================================================================
+10. CONTACT
+================================================================================
+Primary: info@neuroagentai.org
+Escalation: kemarearlgreen@neuroagentai.org
+https://neuroagentai.org · https://www.theneuroagentai.com
+
+For commercial licensing, contact NeuroAgent / the copyright holders in writing
+before any commercial use.

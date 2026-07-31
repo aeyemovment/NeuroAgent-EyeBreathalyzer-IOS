@@ -160,3 +160,4 @@ analysis_csvs/video_pipeline/opennystagmus/tddfa_wrapper/configs/*.pkl
 # PNG whitelist for production assets
 !public/icon.png
 !public/hazyeyes-logo-black-transparent.png
+.env*

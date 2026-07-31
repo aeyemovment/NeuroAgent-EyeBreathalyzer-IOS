@@ -7,6 +7,13 @@ import type { UploadPhase } from './okn-core/uploadHelpers'
 import { runBaselineGate } from './okn-core/baselineGate'
 import type { BaselineMLSession } from './okn-core/baselineGate'
 import { DEFAULT_LANE, RESEARCH_LANES, type ResearchLaneId } from './researchLanes'
+import {
+  CONTACT_PRIMARY,
+  COPYRIGHT_LINE,
+  LICENSE_NAME,
+  NON_COMMERCIAL_NOTICE,
+  NON_COMMERCIAL_SHORT,
+} from './copyright'
 import './styles.css'
 
 declare global {
@@ -873,16 +880,27 @@ function App() {
             </section>
 
             <section>
+              <h3>Non-commercialization copyright</h3>
+              <p>{NON_COMMERCIAL_NOTICE}</p>
+              <p>
+                You may not sell, resell, productize, sublicense for commercial use, or embed
+                OpenDementia in a commercial product without a separate written commercial license
+                from the copyright holders. License: {LICENSE_NAME}.
+              </p>
+              <p style={{ fontSize: 12 }}>{COPYRIGHT_LINE}</p>
+            </section>
+
+            <section>
               <h3>Voluntary participation</h3>
               <p>
                 Participation is voluntary. You may decline research storage; some features may be
-                limited. You may withdraw by emailing info@neuroagentai.org.
+                limited. You may withdraw by emailing {CONTACT_PRIMARY}.
               </p>
             </section>
 
             <section>
               <h3>Contact</h3>
-              <p>Primary: info@neuroagentai.org</p>
+              <p>Primary: {CONTACT_PRIMARY}</p>
               <p>Escalation: kemarearlgreen@neuroagentai.org</p>
               <p>https://neuroagentai.org · https://www.theneuroagentai.com</p>
             </section>
@@ -899,14 +917,16 @@ function App() {
                 />
                 <span>
                   I have read and understood the information above. I agree this is a research
-                  prototype only (not diagnostic). I voluntarily allow OpenDementia / NeuroAgent
-                  research tools to store and use my anonymized data for non-commercial dementia
-                  research and algorithm development.
+                  prototype only (not diagnostic). I accept the non-commercialization copyright
+                  terms. I voluntarily allow OpenDementia / NeuroAgent research tools to store and
+                  use my anonymized data for non-commercial dementia research and algorithm
+                  development only.
                 </span>
               </label>
               {!consentChecked && (
                 <p className="consent-hint">Check the box to enable "Agree".</p>
               )}
+              <p style={{ fontSize: 11, opacity: 0.8 }}>{NON_COMMERCIAL_SHORT}</p>
               <p>(Tap "Agree" to continue or "Decline" to use the app without data sharing.)</p>
             </section>
 
@@ -1013,12 +1033,15 @@ function App() {
         <div className="start-screen">
           <div className="start-card">
             <p className="start-description" style={{ marginBottom: 4, letterSpacing: '0.08em', textTransform: 'uppercase', fontSize: 11 }}>
-              NeuroAgent · open research
+              NeuroAgent · open research · non-commercial
             </p>
             <h1 className="start-heading">OpenDementia</h1>
             <p className="start-description">{RESEARCH_LANES.dementia.tagline}</p>
             <p className="start-description" style={{ fontSize: 12 }}>
               {RESEARCH_LANES.dementia.nonClaim}
+            </p>
+            <p className="start-description" style={{ fontSize: 11, opacity: 0.85, marginTop: 8 }}>
+              {NON_COMMERCIAL_SHORT}
             </p>
 
             {/* Baseline workflow routing — above auth so start button is visible in landscape */}

@@ -2,6 +2,13 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { ClerkProvider } from '@clerk/clerk-react'
 import App from './App'
+import {
+  CONTACT_PRIMARY,
+  COPYRIGHT_LINE,
+  LICENSE_NAME,
+  NON_COMMERCIAL_NOTICE,
+  NON_COMMERCIAL_SHORT,
+} from './copyright'
 import './index.css'
 
 class ErrorBoundary extends React.Component<
@@ -108,6 +115,20 @@ function OpenDementiaLanding() {
       <p style={{ fontSize: 12, color: '#fbbf24' }}>
         Not a dementia diagnostic or screening tool. Not for clinical care.
       </p>
+      <p
+        style={{
+          fontSize: 11,
+          color: '#94a3b8',
+          lineHeight: 1.45,
+          marginTop: 12,
+          padding: 12,
+          borderRadius: 8,
+          border: '1px solid #334155',
+          background: 'rgba(15,23,42,0.6)',
+        }}
+      >
+        {NON_COMMERCIAL_NOTICE}
+      </p>
 
       {!accepted ? (
         <div
@@ -119,22 +140,33 @@ function OpenDementiaLanding() {
             background: 'rgba(15,23,42,0.8)',
           }}
         >
-          <h2 style={{ fontSize: 16, marginTop: 0 }}>Research consent</h2>
+          <h2 style={{ fontSize: 16, marginTop: 0 }}>Research consent + non-commercial license</h2>
           <p style={{ fontSize: 13, color: '#94a3b8', lineHeight: 1.5 }}>
             I understand OpenDementia is a NeuroAgent research preview for dementia research only.
             It is not a medical device and must not be used for diagnosis or clinical screening.
           </p>
-          <p style={{ fontSize: 12, color: '#64748b' }}>Contact: info@neuroagentai.org</p>
+          <p style={{ fontSize: 12, color: '#cbd5e1', lineHeight: 1.45 }}>
+            <strong>Non-commercialization:</strong> I will not sell, resell, productize, sublicense
+            for commercial use, or embed OpenDementia in a commercial product without a separate
+            written commercial license from NeuroAgent AI, Inc..
+            License: {LICENSE_NAME}.
+          </p>
+          <p style={{ fontSize: 12, color: '#64748b' }}>Contact: {CONTACT_PRIMARY}</p>
           <label style={{ display: 'flex', gap: 8, fontSize: 13, margin: '12px 0' }}>
             <input type="checkbox" id="c1" />
             I agree — research only, not diagnostic.
+          </label>
+          <label style={{ display: 'flex', gap: 8, fontSize: 13, margin: '12px 0' }}>
+            <input type="checkbox" id="c2" />
+            I accept the non-commercialization copyright terms (no commercial use without written license).
           </label>
           <button
             type="button"
             onClick={() => {
               const el = document.getElementById('c1') as HTMLInputElement | null
-              if (!el?.checked) {
-                alert('Please accept the research checkbox to continue.')
+              const el2 = document.getElementById('c2') as HTMLInputElement | null
+              if (!el?.checked || !el2?.checked) {
+                alert('Please accept both research and non-commercialization checkboxes.')
                 return
               }
               setAccepted(true)
@@ -166,7 +198,7 @@ function OpenDementiaLanding() {
         >
           <h2 style={{ fontSize: 16, marginTop: 0 }}>OpenDementia</h2>
           <p style={{ fontSize: 13, color: '#fde68a', lineHeight: 1.5 }}>
-            Terms accepted. Full camera OKN protocol needs Clerk + Supabase on Vercel:
+            Terms accepted (research + non-commercial). Full camera OKN protocol needs Clerk + Supabase on Vercel:
           </p>
           <ul style={{ fontSize: 12, color: '#94a3b8', lineHeight: 1.6 }}>
             <li>
@@ -179,11 +211,15 @@ function OpenDementiaLanding() {
           <p style={{ fontSize: 13, color: '#e2e8f0' }}>
             After env is set and redeployed, the full OKN test UI loads automatically.
           </p>
-          <p style={{ fontSize: 12, color: '#64748b' }}>
-            info@neuroagentai.org
-          </p>
+          <p style={{ fontSize: 11, color: '#64748b', marginTop: 12 }}>{NON_COMMERCIAL_SHORT}</p>
+          <p style={{ fontSize: 12, color: '#64748b' }}>{CONTACT_PRIMARY}</p>
         </div>
       )}
+      <footer style={{ marginTop: 28, fontSize: 10, color: '#475569', lineHeight: 1.4 }}>
+        {COPYRIGHT_LINE}
+        <br />
+        {LICENSE_NAME}
+      </footer>
     </div>
   )
 }
