@@ -17,6 +17,7 @@ import {
   NON_COMMERCIAL_NOTICE,
   NON_COMMERCIAL_SHORT,
 } from './copyright'
+import { C9ProtocolPanel } from './C9ProtocolPanel'
 import './styles.css'
 
 declare global {
@@ -1086,6 +1087,10 @@ function App() {
             <p className="start-description" style={{ fontSize: 11, opacity: 0.75 }}>
               {COLLABORATE_CTA} · Return to app: {APP_URL}
             </p>
+
+            <div style={{ maxWidth: 520, margin: '16px auto', textAlign: 'left' }}>
+              <C9ProtocolPanel />
+            </div>
 
             {/* Baseline workflow routing — above auth so start button is visible in landscape */}
             {isSignedIn && consentChoice === 'accepted' && baselineStatus === 'loading' && (

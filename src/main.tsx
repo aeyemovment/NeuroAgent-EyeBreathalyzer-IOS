@@ -12,6 +12,7 @@ import {
   NON_COMMERCIAL_NOTICE,
   NON_COMMERCIAL_SHORT,
 } from './copyright'
+import { C9ProtocolPanel } from './C9ProtocolPanel'
 import './index.css'
 
 class ErrorBoundary extends React.Component<
@@ -248,6 +249,8 @@ function OpenDementiaLanding() {
               <code>VITE_SUPABASE_URL</code> / <code>VITE_SUPABASE_ANON_KEY</code>
             </li>
           </ul>
+
+          <C9ProtocolPanel />
 
           <h3 style={{ fontSize: 14, marginTop: 20 }}>Collaborator registration</h3>
           <p style={{ fontSize: 12, color: '#94a3b8' }}>
