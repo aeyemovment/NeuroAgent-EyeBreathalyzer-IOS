@@ -47,7 +47,7 @@ function App() {
   const [cameraPosition, setCameraPosition] = useState('')
   const [subjectNumber, setSubjectNumber] = useState('')
   const [bacValue, setBacValue] = useState('')
-  /** Internal upload labels only — never show EtOH/drunk language in UI */
+  /** Internal upload labels only — UI labels are dementia-research only */
   const [selfReportLabel, setSelfReportLabel] = useState<'' | 'sober' | 'drunk'>('')
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
   const [submitError, setSubmitError] = useState<string | null>(null)
@@ -730,7 +730,7 @@ function App() {
       )
     }
 
-    // --- Test session results — research session metadata (no EtOH/BAC UI) ---
+    // --- Test session results — research session metadata (research session metadata only) ---
     const handleBacSubmit = () => {
       setSubmitError(null)
 
@@ -743,7 +743,7 @@ function App() {
 
       setSubmitStatus('submitting')
 
-      // Schema still uses bac/selfReport fields internally; UI never shows EtOH language.
+      // Schema still uses bac/selfReport fields internally; UI UI is dementia-research only.
       // Control → bac 0; research-interest → null + label for uncertain table
       if (selfReportLabel === 'sober') {
         window.dispatchEvent(new CustomEvent('upload-with-bac', {
@@ -763,7 +763,7 @@ function App() {
 
     const elevated =
       testResult.decision === 'likely' || testResult.decision === 'insufficient'
-    // Research edition: no EtOH / impairment framing in UI
+    // Research edition: research-signal framing only in UI
     const researchStatus = elevated
       ? 'Research signal: elevated pattern'
       : 'Research signal: baseline-range pattern'
@@ -783,7 +783,7 @@ function App() {
             <p className="outcome-label">OpenDementia research assessment</p>
             <h2 className="outcome-value">{researchStatus}</h2>
             <p className="outcome-label" style={{ marginTop: 8, fontSize: 12, opacity: 0.85 }}>
-              Not a clinical diagnosis. Not related to alcohol or impairment testing.
+              Not a clinical diagnosis. Research signals only — not clinical diagnosis.
             </p>
           </section>
 
@@ -1146,7 +1146,7 @@ function App() {
                     <h3 style={{ color: '#fff', margin: '0 0 8px' }}>Establish Your Research Baseline</h3>
                     <p className="start-description" style={{ margin: '0 0 12px' }}>
                       {MIN_BASELINES} quick 15-second tests establish your personal research baseline
-                      for OpenDementia (dementia research). Not alcohol-related.
+                      for OpenDementia (dementia research). 
                     </p>
                   </>
                 ) : (

@@ -3435,7 +3435,7 @@ function analyzeOKN(samples) {
         decision = 'likely';
         label = 'Elevated research pattern';
         color = 'bad';
-        detail = 'Research signal: elevated eye-movement pattern. Not a diagnosis. Not alcohol-related.';
+        detail = 'Research signal: elevated eye-movement pattern. Not a diagnosis. ';
       } else {
         decision = 'unlikely';
         label = 'Baseline-range research pattern';
@@ -3720,10 +3720,10 @@ function showDecision(res){
       initLocationAndLinks();
       actions.push(goSafe, retry);
     }else if(res.decision==='unlikely'){
-      // research disclaimer (no EtOH / driving messaging)
+      // research disclaimer (research disclaimer only)
       const disclaimer = document.createElement('div');
       disclaimer.className = 'hint';
-      disclaimer.textContent = "Research prototype only — not a medical diagnosis. Not for alcohol or driving decisions.";
+      disclaimer.textContent = "Research prototype only — not a medical diagnosis. Not for clinical or driving decisions.";
       decisionActions.appendChild(disclaimer);
       actions.push(goSafe, retry);
     }else{
