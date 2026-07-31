@@ -38,14 +38,27 @@ In **research use only**, OpenDementia:
 
 ---
 
-## 2) Updated video demo (included)
+## 2) Updated video demo (included) — FTD scrub
 
 | File | Purpose |
 |------|---------|
-| **`demo/okn_demo_c9orf72.mp4`** | **Primary packet demo** — H.264, 1280p, ~30s, from eyebreathalyzer 3.mov |
-| `demo/okn_demo_c9orf72_source.mov` | Full-fidelity source (HEVC) |
-| `demo/okn_demo_c9orf72_web_current.mp4` | Previous smaller web encode (backup) |
+| **`demo/okn_demo_c9orf72.mp4`** | **Primary packet demo** — FTD-focused; alcohol / brainstem / EyeBreathalyzer / “Not Impaired” / “breathalyzer” overlays removed |
+| `demo/okn_demo_ftd_scrubbed.mp4` | Same scrubbed master |
+| `demo/okn_demo_c9orf72_source.mov` | Original source asset (pre-scrub; for archive only — **do not promote**) |
 | `demo/frame_01.jpg` | Poster / thumbnail |
+
+### Scrubbed out of public demo
+- Alcohol / EtOH / breathalyzer claims  
+- Brainstem marketing line  
+- EyeBreathalyzer + HazyEyes alcohol branding  
+- “Not Impaired” + 98% alcohol-style accuracy end card  
+
+### Replaced with (FTD research framing)
+- OpenDementia · NeuroAgent intro  
+- OKN patterns in **some FTD presentations** (research only)  
+- Priority for **targeted genetic testing** (e.g. C9ORF72 ALS-FTD)  
+- **FTD research priority band** (not a diagnosis / genotype)  
+- End: research only · not a diagnosis · not a genetic test · info@neuroagentai.org  
 
 **Live in app:**  
 https://opendementia.vercel.app/demo/okn_demo_c9orf72.mp4  

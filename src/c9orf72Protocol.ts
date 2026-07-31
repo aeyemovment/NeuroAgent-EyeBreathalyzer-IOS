@@ -72,7 +72,7 @@ export type C9ResearchResult = {
 }
 
 /** Deterministic pseudo-metrics from demo context for workflow demos (not clinical). */
-export function runDemoC9ResearchAnalysis(seed = 'eyebreathalyzer-3-demo'): C9ResearchResult {
+export function runDemoC9ResearchAnalysis(seed = 'opendementia-ftd-c9-demo'): C9ResearchResult {
   // Stable hash-like values from seed so demos are reproducible
   let h = 0
   for (let i = 0; i < seed.length; i++) h = (h * 31 + seed.charCodeAt(i)) >>> 0

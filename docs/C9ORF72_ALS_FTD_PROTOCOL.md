@@ -2,7 +2,7 @@
 
 **Protocol ID:** `opendementia-c9orf72-als-ftd-v0.2`  
 **Product:** OpenDementia (NeuroAgent)  
-**Demo asset:** `public/demo/okn_demo_c9orf72.mp4`
+**Demo asset:** `public/demo/okn_demo_c9orf72.mp4` (FTD-focused scrub — no alcohol / brainstem / EyeBreathalyzer marketing copy)
 
 ## Intended research use
 
